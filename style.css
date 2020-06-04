@@ -6,7 +6,11 @@ body {
 
 .titlebar {
 	width: 100%
+	display: inline-block;
 	background-color: #ffffff;
+	white-space: nowrap;
+	overflow-x: auto;
+	overflow-y: hidden;
 }
 
 .titlebar-left {
