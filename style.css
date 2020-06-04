@@ -6,14 +6,17 @@ body {
 
 .titlebar-left {
 	width: 30%;
+	display: inline-block;
 }
 
 .titlebar-center {
 	width: 40%;
+	display: inline-block;
 }
 
 .titlebar-right {
 	width: 30%;
+	display: inline-block;
 }
 
 .titlebar ul {
