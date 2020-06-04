@@ -5,8 +5,8 @@ body {
 }
 
 .titlebar {
-	width: 100%
-	display: inline-block;
+	display: inline-flex;
+	table-layout: fixed;
 	background-color: #ffffff;
 	white-space: nowrap;
 	overflow-x: auto;
@@ -14,18 +14,18 @@ body {
 }
 
 .titlebar-left {
-	width: 30%;
-	display: inline-block;
+	flex-grow: 1;
+	border: 0px;
 }
 
 .titlebar-center {
-	width: 40%;
-	display: inline-block;
+	flex-grow: 1;
+	border: 0px;
 }
 
 .titlebar-right {
-	width: 30%;
-	display: inline-block;
+	flex-grow: 1;
+	border: 0px;
 }
 
 .titlebar ul {
