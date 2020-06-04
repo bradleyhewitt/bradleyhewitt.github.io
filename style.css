@@ -4,6 +4,11 @@ body {
 	margin: 0;
 }
 
+.titlebar {
+	width: 100%
+	background-color: #ffffff;
+}
+
 .titlebar-left {
 	width: 30%;
 	display: inline-block;
@@ -25,7 +30,6 @@ body {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	background-color: #ffffff;
 }
 
 .titlebar-center ul {
