@@ -4,28 +4,47 @@ body {
 	margin: 0;
 }
 
+.titlebar-left {
+	width: 30%;
+}
+
+.titlebar-center {
+	width: 40%;
+}
+
+.titlebar-right {
+	width: 30%;
+}
+
 .titlebar ul {
 	position: relative;
 	overflow: hidden;
 	list-style-type: none;
-    margin: 0;
-    padding: 0;
-	text-align: center;
+	margin: 0;
+	padding: 0;
 	background-color: #ffffff;
+}
+
+.titlebar-center ul {
+	text-align: center;
+}
+
+.titlebar-left ul {
+	text-align: left;
 }
 
 .titlebar li {
 	vertical-align: top;
-    display: inline-block;
+	display: inline-block;
 }
 
 .titlebar a {
-    float: left;
+	float: left;
 	text-align: center;
-    padding: 29px 16px;
-    text-decoration: none;
+	padding: 29px 16px;
+	text-decoration: none;
 	color: #0c0c0c;
-    font-size: 16px;
+	font-size: 16px;
 	font-weight: bold;
 	font-family: "Open Sans"
 }
@@ -35,7 +54,7 @@ body {
 }
 
 .titlebar a.active {
-  color: #fc300c
+	color: #fc300c
 }
 
 .titlebar a img {
@@ -51,7 +70,7 @@ body {
 
 .content li {
 	color: #ffffff;
-    display: inline-block;
+	display: inline-block;
 }
 
 .greeting {
