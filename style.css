@@ -250,7 +250,8 @@ body {
 		width: 75%;
 	}
 	.large-logo {
-		padding-top: 10vh;
+		padding-top: 5vh;
+		padding-bottom: 5vh;
 	}
 }
 
