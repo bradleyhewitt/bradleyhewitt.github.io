@@ -142,6 +142,17 @@ body {
 	line-height: 30px;
 }
 
+.media h1 {
+	font-size: 40px;
+	font-weight: bold;
+	line-height: 0px;
+	display: block;
+	padding-bottom: 10px;
+	color: #ff8859;
+	font-family: "Inconsolata", monospace;
+	text-align: center;
+}
+
 .picture {
 	display: flex;
 	align-items: center;
@@ -162,7 +173,7 @@ body {
 .media p {
 	font-size: 20px;
 	color: #ffffff;
-	font-family: "Inconsolata, monospace";
+	font-family: "Inconsolata", monospace;
 	text-align: left;
 }
 
