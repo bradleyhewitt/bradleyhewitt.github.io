@@ -223,8 +223,8 @@ body {
 }
 
 .pdf {
-	height: 70vh;
-	width: 50vw;
+	height: 1100px;
+	width: 850px;
 }
 
 .pdf-link {
@@ -240,6 +240,13 @@ body {
 	font-family: "Pacifico";
 	font-size: 40px;
 	text-shadow: 4px 2px #441300;
+}
+
+@media only screen and (max-width: 1440px) {
+	.pdf {
+		height: 55vh;
+		width: 43vw;
+	}
 }
 
 @media only screen and (max-width: 1220px) {
