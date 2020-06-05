@@ -23,7 +23,7 @@ body {
 }
 
 .titlebar-center {
-	flex-grow: 2;
+	flex-grow: 3;
 	flex-basis: 0;
 	border: 0px;
 	padding-top: 31px;
