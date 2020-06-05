@@ -258,6 +258,9 @@ body {
 	.media img {
 		width: 75%;
 	}
+	.largelogo {
+		padding-top: 30px;
+	}
 }
 
 @media only screen and (max-width: 900px) {
