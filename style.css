@@ -6,58 +6,70 @@ body {
 
 .titlebar {
 	display: inline-flex;
-	table-layout: fixed;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
 	background-color: #ffffff;
-	white-space: nowrap;
-	overflow-x: auto;
-	overflow-y: hidden;
+	margin: 0;
 }
 
 .titlebar-left {
 	flex-grow: 1;
 	border: 0px;
+	padding-top: 31px;
+	padding-bottom: 31px;
+	padding-left: 5px;
 }
 
 .titlebar-center {
 	flex-grow: 1;
 	border: 0px;
+	padding-top: 31px;
+	padding-bottom: 31px;
 }
 
 .titlebar-right {
 	flex-grow: 1;
 	border: 0px;
+	padding-top: 31px;
+	padding-bottom: 31px;
+	padding-right: 17px;
 }
 
 .titlebar ul {
-	position: relative;
-	overflow: hidden;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
 
-.titlebar-center ul {
-	text-align: center;
-}
-
-.titlebar-left ul {
-	text-align: left;
-}
-
 .titlebar li {
-	vertical-align: top;
 	display: inline-block;
 }
 
 .titlebar a {
-	float: left;
-	text-align: center;
-	padding: 29px 16px;
 	text-decoration: none;
 	color: #0c0c0c;
 	font-size: 16px;
 	font-weight: bold;
 	font-family: "Open Sans"
+}
+
+.titlebar-left a {
+	padding-top: 31px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.titlebar-center a {
+	padding: 31px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.titlebar-right a {
+	padding: 31px;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 
 .titlebar a:hover {
@@ -69,32 +81,179 @@ body {
 }
 
 .titlebar a img {
-	height: 19px;
+	height: 18px;
+}
+
+.titlebar-left ul {
 	width: auto;
-	margin: auto;
+	text-align: left;
 }
 
-.content ul {
-	margin-top: 200px;
-	list-style-type: none;
+.titlebar-center ul {
+	width: auto;
+	text-align: center;
 }
 
-.content li {
-	color: #ffffff;
-	display: inline-block;
+.titlebar-right ul {
+	width: auto;
+	text-align: right;
+}
+
+@media screen and (max-width: 660px) {
+	.titlebar a {
+		font-size: 24px;
+	}
+	.titlebar a img {
+		height: 24px;
+		margin: auto;
+	}
+}
+
+.content {
+	padding: 0;
+	margin: 0;
+	display: block;
+	float: center;
+}
+
+.large-logo {
+	text-align: center;
+	float: center;
+	height: 6vw;
+	padding-bottom: 60px;
+}
+
+.large-logo img {
+	width: 80vw;
+}
+
+.media {
+	display: flex;
+	float: center;
+	width: 60vw;
+	background-color: #E3DCCC;
+	border: 4px solid #a39e93;
+	margin: 0 auto;
+	margin-top: 40px;
+	padding-bottom: 20px;
+}
+
+.media a {
+	text-decoration: underline;
+	color: #0c0c0c;
+	font-size: 16px;
+	font-family: "Open Sans"
+}
+
+.picture {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	margin: 0 auto;
+	height: 60vh;
+}
+
+.about {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.resume {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.work {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.media h1 {
+	font-size: 40px;
+	font-weight: bold;
+	line-height: 0px;
+	display: block;
+	padding-bottom: 10px;
+	color: #a39e93;
+	font-family: "Poppins";
+	text-align: center;
+}
+
+.media p {
+	font-size: 20px;
+	color: #a39e93;
+	font-family: "Poppins";
+	text-align: left;
+}
+
+.resume p {
+	line-height: 60px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.about p {
+	line-height: 50px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.work p {
+	line-height: 30px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.media img {
+	width: 30%;
+	border: 4px solid #a39e93;
+	border-radius: 80px;
+	padding: 0px;
+}
+
+.pdf {
+	height: 70vh;
+	width: 50vw;
+}
+
+.pdf-link {
+	padding-top: 20px;
+	height: 30px;
+	margin: 0 auto;
 }
 
 .greeting {
-	text-align: center;
+	color: #ffffff;
 	float: center;
 	line-height: 1.4;
 	font-family: "Pacifico";
-	font-size: 50px;
+	font-size: 40px;
 	text-shadow: 4px 2px #441300;
 }
 
-.social {
-	text-align: center;
-	font-family: "Poppins";
-	font-size: 50px;
+@media only screen and (max-width: 1220px) {
+	.media img {
+		width: 40%;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	.media h1 {
+		font-size: 5vw;
+	}
+	
+	.media img {
+		width: 60%;
+	}
 }
