@@ -211,11 +211,15 @@ body {
 	padding-right: 20px;
 }
 
-.media img {
+.picture img {
 	width: 30%;
 	border: 4px solid #ff8859;
 	border-radius: 80px;
 	padding: 0px;
+}
+
+.about img {
+	height: 20px;	
 }
 
 .pdf {
