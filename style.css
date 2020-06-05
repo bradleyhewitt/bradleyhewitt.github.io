@@ -245,6 +245,7 @@ body {
 .pdf {
 	height: 1100px;
 	width: 850px;
+	margin: 0 auto;
 }
 
 .pdf-link {
