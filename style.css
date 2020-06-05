@@ -240,9 +240,6 @@ body {
 }
 
 @media only screen and (max-width: 1220px) {
-	.media img {
-		width: 40%;
-	}
 	.titlebar a {
 		font-size: 24px;
 	}
@@ -253,7 +250,7 @@ body {
 	.picture {
 		height: 40vh;	
 	}
-	.media img {
+	.picture img {
 		width: 75%;
 	}
 	.large-logo {
