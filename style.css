@@ -151,23 +151,7 @@ body {
 	height: 55vh;
 }
 
-.about {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	text-align: center;
-	margin: 0 auto;
-}
-
-.resume {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	text-align: center;
-	margin: 0 auto;
-}
-
-.work {
+.words {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -193,19 +177,7 @@ body {
 	text-align: left;
 }
 
-.resume p {
-	line-height: 30px;
-	padding-left: 20px;
-	padding-right: 20px;
-}
-
-.about p {
-	line-height: 30px;
-	padding-left: 20px;
-	padding-right: 20px;
-}
-
-.work p {
+.words p {
 	line-height: 30px;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -266,7 +238,7 @@ body {
 	padding: 0px;
 }
 
-.about img {
+.words img {
 	height: 18px;	
 }
 
