@@ -122,11 +122,12 @@ body {
 
 .media {
 	display: flex;
+	flex-direction: column;
 	float: center;
 	width: 60vw;
 	background-color: #1e1e1e;
-	border-radius: 20px;
-	border: 4px solid #ff7559;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
 	margin: 0 auto;
 	margin-top: 40px;
 	padding-bottom: 20px;
@@ -153,21 +154,9 @@ body {
 
 .words {
 	display: flex;
-	align-items: center;
-	flex-direction: column;
 	text-align: center;
-	margin: 0 auto;
-}
-
-.media h1 {
-	font-size: 40px;
-	font-weight: bold;
-	line-height: 0px;
-	display: block;
-	padding-bottom: 10px;
-	color: #ff8859;
-	font-family: "Poppins";
-	text-align: center;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
 .media p {
@@ -276,11 +265,5 @@ body {
 	.large-logo {
 		padding-top: 5vh;
 		padding-bottom: 5vh;
-	}
-}
-
-@media only screen and (max-width: 900px) {
-	.media h1 {
-		font-size: 5vw;
 	}
 }
