@@ -124,8 +124,9 @@ body {
 	display: flex;
 	float: center;
 	width: 60vw;
-	background-color: #E3DCCC;
-	border: 4px solid #a39e93;
+	background-color: #ffffff;
+	border-radius: 20px;
+	border: 4px solid #ff7559;
 	margin: 0 auto;
 	margin-top: 40px;
 	padding-bottom: 20px;
@@ -179,14 +180,14 @@ body {
 	line-height: 0px;
 	display: block;
 	padding-bottom: 10px;
-	color: #6e6a63;
+	color: #ff8859;
 	font-family: "Poppins";
 	text-align: center;
 }
 
 .media p {
 	font-size: 20px;
-	color: #6e6a63;
+	color: #333333;
 	font-family: "Poppins";
 	text-align: left;
 }
@@ -211,7 +212,7 @@ body {
 
 .media img {
 	width: 30%;
-	border: 4px solid #a39e93;
+	border: 4px solid #ff8859;
 	border-radius: 80px;
 	padding: 0px;
 }
