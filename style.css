@@ -178,14 +178,14 @@ body {
 	line-height: 0px;
 	display: block;
 	padding-bottom: 10px;
-	color: #a39e93;
+	color: #6e6a63;
 	font-family: "Poppins";
 	text-align: center;
 }
 
 .media p {
 	font-size: 20px;
-	color: #a39e93;
+	color: #6e6a63;
 	font-family: "Poppins";
 	text-align: left;
 }
@@ -223,15 +223,6 @@ body {
 .pdf-link {
 	padding-top: 20px;
 	margin: 0 auto;
-}
-
-.greeting {
-	color: #ffffff;
-	float: center;
-	line-height: 1.4;
-	font-family: "Pacifico";
-	font-size: 40px;
-	text-shadow: 4px 2px #441300;
 }
 
 @media only screen and (max-width: 1440px) {
