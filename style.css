@@ -148,7 +148,7 @@ body {
 	line-height: 0px;
 	display: block;
 	padding-bottom: 10px;
-	color: #ff8859;
+	color: #ffffff;
 	font-family: "Inconsolata", monospace;
 	text-align: center;
 }
@@ -165,6 +165,7 @@ body {
 
 .words {
 	display: flex;
+	flex-direction: column;
 	text-align: center;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -179,8 +180,6 @@ body {
 
 .words p {
 	line-height: 30px;
-	padding-left: 20px;
-	padding-right: 20px;
 }
 
 .header {
@@ -225,6 +224,7 @@ body {
 .prompt {
 	padding-left: 8px;
 	padding-top: 8px;
+	padding-bottom: 8px;
 	color: #ffffff;
 	text-align: left;
 	font-family: "Incolsolata", monospace;
