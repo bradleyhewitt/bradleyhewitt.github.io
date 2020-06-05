@@ -253,6 +253,12 @@ body {
 	.media img {
 		width: 40%;
 	}
+	.titlebar a {
+		font-size: 24px;
+	}
+	.titlebar a img {
+		height: 24px;
+	}
 }
 
 @media only screen and (max-width: 900px) {
