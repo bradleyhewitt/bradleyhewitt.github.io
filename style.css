@@ -265,8 +265,10 @@ body {
 	.media h1 {
 		font-size: 5vw;
 	}
-	
 	.media img {
-		width: 60%;
+		width: 75%;
+	}
+	.picture {
+		height: 40vh;	
 	}
 }
