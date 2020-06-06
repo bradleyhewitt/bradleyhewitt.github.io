@@ -174,7 +174,7 @@ body {
 .media p {
 	font-size: 20px;
 	color: #ffffff;
-	font-family: "Inconsolata", monospace;
+	font-family: "Open Sans";
 	text-align: left;
 }
 
@@ -193,7 +193,7 @@ body {
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
 	color: #ffffff;
-	font-family: "Inconsolata", monospace;
+	font-family: "Open Sans";
 	font-size: 24px;
 	display: inline-flex;
 }
@@ -227,7 +227,7 @@ body {
 	padding-bottom: 8px;
 	color: #ffffff;
 	text-align: left;
-	font-family: "Incolsolata", monospace;
+	font-family: "Nanum Gothic Coding", monospace;
 	font-size: 14px;
 }
 
