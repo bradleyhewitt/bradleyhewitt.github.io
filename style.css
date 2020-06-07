@@ -268,13 +268,13 @@ body {
 		height: 40vh;	
 	}
 	.picture img {
-		width: 75%;
+		height: 90%;
+		width: auto;
 	}
 	.large-logo {
 		padding-top: 5vh;
 		padding-bottom: 5vh;
 	}
-
 	.media {
 		width: 80vw;
 	}
