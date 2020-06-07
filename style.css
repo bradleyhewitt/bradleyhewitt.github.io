@@ -196,7 +196,6 @@ body {
 	color: #ffffff;
 	font-family: "Open Sans";
 	font-size: 24px;
-	height: 100%;
 	padding-top: 7px;
 	padding-bottom: 7px;
 }
@@ -208,7 +207,7 @@ body {
 }
 
 .header img {
-	height: 50%;
+	height: 15px;
 	padding-left: 10px;
 }
 
