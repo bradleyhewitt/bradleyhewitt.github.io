@@ -240,9 +240,7 @@ body {
 	padding: 0px;
 }
 
-.words img {
-	padding-top: 20px;
-	padding-bottom: 20px;
+.words:not(.icon) img {
 	width: 50%;
 	height: auto;
 	text-align: center;
