@@ -247,9 +247,10 @@ body {
 	margin: 0 auto;
 }
 
-.icon {
+img .icon {
 	height: 18px;
 	width: auto;
+	text-align: left;
 }
 
 .pdf {
