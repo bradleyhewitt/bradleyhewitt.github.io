@@ -240,10 +240,16 @@ body {
 	padding: 0px;
 }
 
-.words img:not(.icon) {
+.words-img {
+	width: 100%;
+	display: block;
+	text-align: center;
+}
+
+.words-img img {
 	width: 50%;
 	height: auto;
-	text-align: center;
+	padding-top: 20px;
 	margin: 0 auto;
 }
 
@@ -251,6 +257,7 @@ body {
 	height: 18px;
 	width: auto;
 	text-align: left;
+	padding: 0;
 }
 
 .pdf {
