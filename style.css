@@ -240,15 +240,16 @@ body {
 	padding: 0px;
 }
 
-.icon img {
-	height: 18px;	
-}
-
 .words img {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	width: 50%;
 	height: auto;
+	margin: 0 auto;
+}
+
+a.icon img {
+	height: 18px;	
 }
 
 .pdf {
