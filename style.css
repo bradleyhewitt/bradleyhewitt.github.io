@@ -240,14 +240,14 @@ body {
 	padding: 0px;
 }
 
-.words:not(.icon) img {
+.words img:not(.icon) {
 	width: 50%;
 	height: auto;
 	text-align: center;
 	margin: 0 auto;
 }
 
-a.icon img {
+.icon {
 	height: 18px;
 	width: auto;
 }
