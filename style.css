@@ -245,11 +245,13 @@ body {
 	padding-bottom: 20px;
 	width: 50%;
 	height: auto;
+	text-align: center;
 	margin: 0 auto;
 }
 
 a.icon img {
-	height: 18px;	
+	height: 18px;
+	width: auto;
 }
 
 .pdf {
