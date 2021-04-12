@@ -41,8 +41,9 @@
   #alphabet {
 	padding: 30px;
   }
-  #array3 {
+  #third {
 	padding: 30px;
+	display: block;
   }
   </style>
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -54,7 +55,7 @@
   <div class = "textdisplay">
 	<div id = "category"></div>
 	<div id = "alphabet"></div>
-	<div id = "array3"></div>
+	<div id = "third"><div id = "type">PUNISHMENT</div><div id = "array3"></div></div>
   </div>
   </div>
     <script>
@@ -64,9 +65,17 @@
 	  var random_alphabet = alphabet[Math.floor(Math.random() * alphabet.length)];
 	  var array3 = new Array("-", "+", "*", "/");
 	  var random_array3 = array3[Math.floor(Math.random() * array3.length)];
+	  var type = new Array("Punishment", "Reward");
+	  var random_type = type[Math.floor(Math.random() * type.length)];
 	  document.getElementById("alphabet").innerHTML=random_alphabet;
 	  document.getElementById("category").innerHTML=random_category;
 	  document.getElementById("array3").innerHTML=random_array3;
+	  document.getElementById("type").innerHTML=random_type;
+	  if (random_type == "Punishment"){
+		document.getElementById("type").style.color = "#ff5c5c";
+	  } else {
+	  	document.getElementById("type").style.color = "#49c973";
+	  }
     </script>
   </body>
 </html>
