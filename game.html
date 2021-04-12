@@ -73,7 +73,7 @@
   <div class = "textdisplay">
 	<div id = "category"></div>
 	<div id = "alphabet"></div>
-	<div id = "third"><div id = "type">PUNISHMENT</div><div id = "array3"></div></div>
+	<div id = "third"><div id = "type"></div></div>
   </div>
   </div>
     <script>
@@ -81,18 +81,20 @@
 	  var random_category = category[Math.floor(Math.random() * category.length)];
       var alphabet = new Array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
 	  var random_alphabet = alphabet[Math.floor(Math.random() * alphabet.length)];
-	  var array3 = new Array("-", "+", "*", "/");
-	  var random_array3 = array3[Math.floor(Math.random() * array3.length)];
+	  var punishments = new Array("Punishment 1", "Punishment 2", "Punishment 3", "Punishment 4");
+	  var rewards = new Array("Reward 1", "Reward 2", "Reward 3", "Reward 4");
 	  var type = new Array("Punishment", "Reward");
 	  var random_type = type[Math.floor(Math.random() * type.length)];
 	  document.getElementById("alphabet").innerHTML=random_alphabet;
 	  document.getElementById("category").innerHTML=random_category;
-	  document.getElementById("array3").innerHTML=random_array3;
-	  document.getElementById("type").innerHTML=random_type;
 	  if (random_type == "Punishment"){
 		document.getElementById("type").style.color = "#ff5c5c";
+		var random_punishment = punishments[Math.floor(Math.random() * punishments.length)];
+		document.getElementById("type").innerHTML=random_punishment;
 	  } else {
 	  	document.getElementById("type").style.color = "#49c973";
+		var random_reward = rewards[Math.floor(Math.random() * rewards.length)];
+		document.getElementById("type").innerHTML=random_reward;
 	  }
     </script>
   </body>
