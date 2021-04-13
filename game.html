@@ -138,13 +138,14 @@
 			return;
 		}
 	  if (/Mobi|Android/i.test(navigator.userAgent)) {
-		if (document.documentElement.clientWidth < document.documentElement.clientHeight || window.matchMedia("(orientation: portrait)".matches)){
+		/*if (document.documentElement.clientWidth < document.documentElement.clientHeight || window.matchMedia("(orientation: portrait)".matches)){
 			<!-- mobile portrait -->
 			makePortrait();
 		} else {
 			<!-- mobile landscape -->
 			makeLandscape();
-		}
+		}*/
+		makePortrait();
 	  } else if (document.documentElement.clientWidth < document.documentElement.clientHeight){
 	  	<!-- other tall device -->
 		document.getElementById("textdisplay").style.width = '80vw';
