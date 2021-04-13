@@ -95,7 +95,6 @@
   }
   </style>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
@@ -112,50 +111,17 @@
   <p id = "playagain"><a href = "" onclick="location.reload();" style = "text-decoration: none; color: #ababab">Play Again <img id = "retryimg" src = "retry.png"></a></p>
   </div>
     <script>
-		/*function makeLandscape(){
-			document.getElementById("textdisplay").style.width = '80vw';
-			document.getElementById("textdisplay").style.minHeight = '40vh';
-			document.getElementById("textdisplay").style.justifyContent = "space_between";
-			document.getElementById("textdisplay").style.fontSize = "50px";
-			document.getElementById("title").style.fontSize = "50px";
-			document.getElementById("footnote").style.fontSize = "12px";
-			document.getElementById("alphabet").style.fontSize = "75px";
-			document.getElementById("playagain").style.fontSize = "20px";
-			document.getElementById("retryimg").style.height = "20px";
-			document.getElementById("retryimg").style.width = "20px";
-			return;
-		}
-		function makePortrait(){
-			document.getElementById("textdisplay").style.width = '80vw';
-			document.getElementById("textdisplay").style.minHeight = '40vh';
-			document.getElementById("textdisplay").style.justifyContent = "space_between";
-			document.getElementById("textdisplay").style.fontSize = "75px";
-			document.getElementById("title").style.fontSize = "100px";
-			document.getElementById("footnote").style.fontSize = "20px";
-			document.getElementById("alphabet").style.fontSize = "125px";
-			document.getElementById("playagain").style.fontSize = "40px";
-			document.getElementById("retryimg").style.height = "40px";
-			document.getElementById("retryimg").style.width = "40px";
-			return;
-		}*/
 	  if (/Mobi|Android/i.test(navigator.userAgent)){
-			document.getElementById("textdisplay").style.width = '80vw';
-			document.getElementById("textdisplay").style.minHeight = '40vh';
-			document.getElementById("textdisplay").style.justifyContent = "space_between";
-			document.getElementById("textdisplay").style.fontSize = "75px";
-			document.getElementById("title").style.fontSize = "100px";
-			document.getElementById("footnote").style.fontSize = "20px";
-			document.getElementById("alphabet").style.fontSize = "125px";
-			document.getElementById("playagain").style.fontSize = "40px";
-			document.getElementById("retryimg").style.height = "40px";
-			document.getElementById("retryimg").style.width = "40px";
-		/*if (document.documentElement.clientWidth < document.documentElement.clientHeight || window.matchMedia("(orientation: portrait)".matches)){
-			<!-- mobile portrait -->
-			makePortrait();
-		} else {
-			<!-- mobile landscape -->
-			makeLandscape();
-		}*/
+		document.getElementById("textdisplay").style.width = '80vw';
+		document.getElementById("textdisplay").style.minHeight = '40vh';
+		document.getElementById("textdisplay").style.justifyContent = "space_between";
+		document.getElementById("textdisplay").style.fontSize = "75px";
+		document.getElementById("title").style.fontSize = "100px";
+		document.getElementById("footnote").style.fontSize = "20px";
+		document.getElementById("alphabet").style.fontSize = "125px";
+		document.getElementById("playagain").style.fontSize = "40px";
+		document.getElementById("retryimg").style.height = "40px";
+		document.getElementById("retryimg").style.width = "40px";
 	  } else if (document.documentElement.clientWidth < document.documentElement.clientHeight){
 	  	<!-- other tall device -->
 		document.getElementById("textdisplay").style.width = '80vw';
