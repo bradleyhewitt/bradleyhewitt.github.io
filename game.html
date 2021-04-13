@@ -76,10 +76,6 @@
 	padding: 30px;
 	font-size: 100px;
 	margin: 0;
-	-moz-text-stroke-color: #2cb2de;
-	-webkit-text-stroke-color: #2cb2de;
-	-moz-text-stroke-width: 1px;  
-	-webkit-text-stroke-width: 1px;
   }
   #type {
 	padding: 30px;
@@ -116,21 +112,21 @@
 	  var random_category = category[Math.floor(Math.random() * category.length)];
 	  document.getElementById("letters").innerHTML=random_category;
 	  var cateWrapper = document.querySelector('#category #letters');
-	  cateWrapper.innerHTML = cateWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+	  cateWrapper.innerHTML = cateWrapper.textContent.replace(/\S+/g, "<span class='letter'>$&</span>");
 	  anime.timeline({loop: false})
 	  .add({
 		targets: '#category .letter',
 		opacity: [0,1],
 		easing: "easeInOutQuad",
-		duration: 600,
+		duration: 1600,
 		delay: (el, i) => 100 * (i+1)
 	  })
 	  .add({
 		targets: '#category .letter',
 		translateY: ["0.5em", 0],
 		translateZ: 0,
-		duration: 500,
-		delay: (el, i) => 40 * i
+		duration: 1200,
+		delay: (el, i) => 30 * i
 		});
       var alphabet = new Array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
 	  var random_alphabet = alphabet[Math.floor(Math.random() * alphabet.length)];
