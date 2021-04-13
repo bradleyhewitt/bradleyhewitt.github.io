@@ -159,7 +159,7 @@
 		document.getElementById("type").innerHTML=random_reward;
 	  }
 	  	var typeWrapper = document.querySelector('#type');
-		typeWrapper.innerHTML = typeWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+		typeWrapper.innerHTML = typeWrapper.textContent.replace(/\S+/g, "<span class='letter'>$&</span>");
 		anime.timeline({loop: false})
 		.add({
 				targets: '#type .letter',
