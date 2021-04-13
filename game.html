@@ -86,6 +86,11 @@
 	padding: 30px;
 	margin: 0;
   }
+  #retryimg {
+	vertical-align: middle;
+	height: 20px;
+	width: 20px;
+  }
   </style>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
@@ -100,7 +105,7 @@
 	<p id = "alphabet"></p>
 	<p id = "type"></p>
   </div>
-  <p id = "playagain"><a href = "" onclick="location.reload();" style = "text-decoration: none; color: #ababab">Play Again <img src = "retry.png" height = "20px" width = "20px" style="vertical-align:middle"></a></p>
+  <p id = "playagain"><a href = "" onclick="location.reload();" style = "text-decoration: none; color: #ababab">Play Again <img id = "retryimg" src = "retry.png"></a></p>
   </div>
     <script>
 	  if (/Mobi|Android/i.test(navigator.userAgent)) {
@@ -110,6 +115,9 @@
 		document.getElementById("textdisplay").style.fontSize = "75px";
 		document.getElementById("title").style.fontSize = "100px";
 		document.getElementById("alphabet").style.fontSize = "125px";
+		document.getElementById("playagain").style.fontSize = "30px";
+		document.getElementById("retryimg").style.height = "30px";
+		document.getElementById("retryimg").style.width = "30px";
 	  } else if (document.documentElement.clientWidth < document.documentElement.clientHeight){
 		document.getElementById("textdisplay").style.width = '80vw';
 		document.getElementById("textdisplay").style.minHeight = '40vh';
