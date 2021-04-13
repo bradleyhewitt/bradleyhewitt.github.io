@@ -37,7 +37,6 @@
 	min-width: 50vw;
 	overflow: hidden;
 	word-break: normal;
-	hyphens: none;
   }
   #title {
 	font-size: 75px;
@@ -55,6 +54,12 @@
 	padding-bottom: 12px;
 	margin: 0;
 	margin-top: -10px;
+  }
+  #playagain {
+	font-size: 20px;
+	font-family: 'Open Sans', sans-serif;
+	color: #ababab;
+	margin: 0;
   }
   #category {
 	padding: 30px;
@@ -95,6 +100,7 @@
 	<p id = "alphabet"></p>
 	<p id = "type"></p>
   </div>
+  <p id = "playagain"><a href = "" onclick="location.reload();" style = "text-decoration: none; color: #ababab">Play Again <img src = "retry.png" height = "20px" width = "20px" style="vertical-align:middle"></a></p>
   </div>
     <script>
 	  if (/Mobi|Android/i.test(navigator.userAgent)) {
