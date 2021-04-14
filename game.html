@@ -108,7 +108,7 @@
 	text-align: center;
 	text-decoration: none;
 	font-weight: bold;
-	font-family: 'Open Sans', sans-serif;
+	font-family: sans-serif;
 	display: inline-block;
 	font-size: 20px;
 	margin-right: 2px;
@@ -131,7 +131,7 @@
 	text-align: center;
 	text-decoration: none;
 	font-weight: bold;
-	font-family: 'Open Sans', sans-serif;
+	font-family: sans-serif;
 	display: inline-block;
 	font-size: 20px;
 	margin-left: 2px;
@@ -156,7 +156,7 @@
   <div class = "content">
   <p id = "title">CATEGORIES*</p>
   <div id = "textdisplay">
-	<p id = "category"><span class = "text-wrapper"><span id="letters"></span></span></p>
+	<p id = "category"></p>
 	<p id = "alphabet">&#8203;</p>
 	<div id = "buttonspace"><button id = "correct" onclick="correct();">Correct</button><button id = "incorrect" onclick="incorrect();">Incorrect</button></div>
 	<p id = "type">&#8203;</p>
@@ -187,8 +187,8 @@
 			document.getElementById("retryimg").style.width = "45px";
 			document.getElementById("correct").style.fontSize = "60px";
 			document.getElementById("incorrect").style.fontSize = "60px";
-			document.getElementById("correct").style.minWidth = "30vw";
-			document.getElementById("incorrect").style.minWidth = "30vw";
+			document.getElementById("correct").style.minWidth = "35vw";
+			document.getElementById("incorrect").style.minWidth = "35vw";
 			return;
 		}
 	  if (/Mobi|Android/i.test(navigator.userAgent)){
@@ -211,7 +211,7 @@
 	  var category = new Array("Cosmetics/toiletries");
 	  var random_category = category[Math.floor(Math.random() * category.length)];
 	  random_category.replace("/", "/&#8203;");
-	  document.getElementById("letters").innerHTML=random_category;
+	  document.getElementById("category").innerHTML=random_category;
 	  /*var cateWrapper = document.querySelector('#category #letters');
 	  cateWrapper.innerHTML = cateWrapper.textContent.replace(/\S+/g, "<span class='letter'>$&</span>");
 	  anime.timeline({loop: false})
