@@ -163,7 +163,7 @@
   </div>
     <script>
 		function makeLandscape(){
-			document.getElementById("textdisplay").style.minHeight = '40vh';
+			/*document.getElementById("textdisplay").style.minHeight = '40vh';
 			document.getElementById("textdisplay").style.justifyContent = "space_between";
 			document.getElementById("textdisplay").style.fontSize = "25px";
 			document.getElementById("title").style.fontSize = "50px";
@@ -171,7 +171,7 @@
 			document.getElementById("alphabet").style.fontSize = "75px";
 			document.getElementById("playagain").style.fontSize = "20px";
 			document.getElementById("retryimg").style.height = "20px";
-			document.getElementById("retryimg").style.width = "20px";
+			document.getElementById("retryimg").style.width = "20px";*/
 			return;
 		}
 		function makePortrait(){
@@ -180,20 +180,20 @@
 			document.getElementById("title").style.fontSize = "100px";
 			document.getElementById("footnote").style.fontSize = "20px";
 			document.getElementById("alphabet").style.fontSize = "125px";
-			document.getElementById("playagain").style.fontSize = "50px";
+			/*document.getElementById("playagain").style.fontSize = "50px";
 			document.getElementById("retryimg").style.height = "45px";
 			document.getElementById("retryimg").style.width = "45px";
 			document.getElementById("correct").style.fontSize = "60px";
-			document.getElementById("incorrect").style.fontSize = "60px";
+			document.getElementById("incorrect").style.fontSize = "60px";*/
 			return;
 		}
 	  if (/Mobi|Android/i.test(navigator.userAgent)){
 		if (screen.availHeight > screen.availWidth){
 			<!-- mobile landscape -->
-			//makePortrait();
+			makePortrait();
 		} else {
 			<!-- mobile portrait -->
-			//makeLandscape();
+			makeLandscape();
 		}
 	  } else if (document.documentElement.clientWidth < document.documentElement.clientHeight){
 	  	<!-- other tall device -->
