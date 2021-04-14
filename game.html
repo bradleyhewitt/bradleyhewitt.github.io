@@ -185,8 +185,8 @@
 			document.getElementById("retryimg").style.width = "45px";
 			document.getElementById("correct").style.fontSize = "60px";
 			document.getElementById("incorrect").style.fontSize = "60px";
-			document.getElementById("correct").style.minWidth = "150px";
-			document.getElementById("incorrect").style.minWidth = "150px";
+			document.getElementById("correct").style.minWidth = "25vw";
+			document.getElementById("incorrect").style.minWidth = "25vw";
 			return;
 		}
 	  if (/Mobi|Android/i.test(navigator.userAgent)){
@@ -210,7 +210,7 @@
 	  var random_category = category[Math.floor(Math.random() * category.length)];
 	  random_category.replace("/", "/&#8203;");
 	  document.getElementById("letters").innerHTML=random_category;
-	  var cateWrapper = document.querySelector('#category #letters');
+	  /*var cateWrapper = document.querySelector('#category #letters');
 	  cateWrapper.innerHTML = cateWrapper.textContent.replace(/\S+/g, "<span class='letter'>$&</span>");
 	  anime.timeline({loop: false})
 	  .add({
@@ -226,7 +226,7 @@
 		translateZ: 0,
 		duration: 1200,
 		delay: (el, i) => 30 * i
-		});
+		});*/
       var alphabet = new Array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "R", "S", "T", "U", "V", "W", "Y");
 	  var random_alphabet = alphabet[Math.floor(Math.random() * alphabet.length)];
 	  document.getElementById("alphabet").innerHTML=random_alphabet;
