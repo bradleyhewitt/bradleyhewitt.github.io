@@ -140,7 +140,7 @@
 			return;
 		}
 	  if (/Mobi|Android/i.test(navigator.userAgent)){
-		if (window.matchMedia("(orientation: portrait)".matches)){
+		if (screen.availHeight > screen.availWidth){
 			<!-- mobile landscape -->
 			makePortrait();
 		} else {
