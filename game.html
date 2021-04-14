@@ -132,18 +132,18 @@
 			document.getElementById("title").style.fontSize = "100px";
 			document.getElementById("footnote").style.fontSize = "20px";
 			document.getElementById("alphabet").style.fontSize = "125px";
-			document.getElementById("playagain").style.fontSize = "40px";
+			document.getElementById("playagain").style.fontSize = "50px";
 			document.getElementById("retryimg").style.height = "40px";
 			document.getElementById("retryimg").style.width = "40px";
 			return;
 		}
 	  if (/Mobi|Android/i.test(navigator.userAgent)){
-		if (document.documentElement.clientWidth < document.documentElement.clientHeight || window.matchMedia("(orientation: portrait)".matches)){
-			<!-- mobile portrait -->
-			makePortrait();
-		} else {
+		if (window.matchMedia("(orientation: landscape)".matches)){
 			<!-- mobile landscape -->
 			makeLandscape();
+		} else {
+			<!-- mobile portrait -->
+			makePortrait();
 		}
 	  } else if (document.documentElement.clientWidth < document.documentElement.clientHeight){
 	  	<!-- other tall device -->
@@ -184,8 +184,8 @@
 				duration: 3000,
 				delay: (el, i) => 1500 * (i+1)
 			});
-	  var punishments = new Array("Punishment 1", "Punishment 2", "Punishment 3", "Punishment 4");
-	  var rewards = new Array("Reward 1", "Reward 2", "Reward 3", "Reward 4");
+	  var punishments = new Array("Take a shot", "Take two shots (double trouble)", "Take a shot and chase it with beer", "Shotgun a beer", "Take a shot poured by another player", "Take a shot poured in your mouth by another player", "Take a shot with another player of your choice", "Drink some beer", "Finish your beer", "One-beer game of flip-cup with another player", "Do 5 pushups", "Sing your favorite lyrics", "Post a horse quote on your story", "Pour a shot into your beer (Superbeer)", "Hurricane Katrina", "Put salt in your beer (Michelada style)", "Viking shot", "Nudie", "Do an impression of the player to your left, or across", "Use your best pickup line on a player of the opposite sex");
+	  var rewards = new Array("Give another player a shot", "Give two other players a shot", "All other players drink", "Make another player kill their drink", "Switch two players’ drinks", "Choose a player to freestyle rap", "Choose a player to do an impression/accent of your choice");
 	  var type = new Array("Punishment", "Reward");
 	  var random_type = type[Math.floor(Math.random() * type.length)];
 	  if (random_type == "Punishment"){
