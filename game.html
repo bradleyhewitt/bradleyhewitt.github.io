@@ -115,7 +115,7 @@
 			document.getElementById("textdisplay").style.width = '80vw';
 			document.getElementById("textdisplay").style.minHeight = '40vh';
 			document.getElementById("textdisplay").style.justifyContent = "space_between";
-			document.getElementById("textdisplay").style.fontSize = "50px";
+			document.getElementById("textdisplay").style.fontSize = "25px";
 			document.getElementById("title").style.fontSize = "50px";
 			document.getElementById("footnote").style.fontSize = "12px";
 			document.getElementById("alphabet").style.fontSize = "75px";
@@ -138,12 +138,12 @@
 			return;
 		}
 	  if (/Mobi|Android/i.test(navigator.userAgent)){
-		if (window.matchMedia("(orientation: landscape)".matches)){
+		if (window.matchMedia("(orientation: portrait)".matches)){
 			<!-- mobile landscape -->
-			makeLandscape();
+			makePortrait();
 		} else {
 			<!-- mobile portrait -->
-			makePortrait();
+			makeLandscape();
 		}
 	  } else if (document.documentElement.clientWidth < document.documentElement.clientHeight){
 	  	<!-- other tall device -->
