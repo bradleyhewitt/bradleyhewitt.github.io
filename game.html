@@ -36,6 +36,7 @@
 	font-weight: bold;
 	color: #33c9ff;
 	min-width: 50vw;
+	max-width: 60vw;
 	overflow: hidden;
 	word-break: normal;
   }
@@ -165,6 +166,7 @@
   </div>
     <script>
 		function makeLandscape(){
+			document.getElementById("textdisplay").style.maxWidth = "80vw";
 			document.getElementById("textdisplay").style.width = "80vw";
 			document.getElementById("textdisplay").style.minHeight = '40vh';
 			document.getElementById("textdisplay").style.justifyContent = "space_between";
@@ -177,6 +179,7 @@
 			return;
 		}
 		function makePortrait(){
+			document.getElementById("textdisplay").style.maxWidth = "80vw";
 			document.getElementById("textdisplay").style.width = "80vw";
 			document.getElementById("textdisplay").style.justifyContent = "space_between";
 			document.getElementById("textdisplay").style.fontSize = "75px";
@@ -231,7 +234,7 @@
 	  var random_alphabet = alphabet[Math.floor(Math.random() * alphabet.length)];
 	  document.getElementById("alphabet").innerHTML=random_alphabet;
 	  var punishments = new Array("Take a shot", "Take two shots (double trouble)", "Take a shot and chase it with beer", "Shotgun a beer", "Take a shot poured by another player", "Take a shot poured in your mouth by another player", "Take a shot with another player of your choice", "Drink some beer", "Finish your beer", "One-beer game of flip-cup with another player", "Do 5 pushups", "Sing your favorite lyrics", "Post a horse quote on your story", "Pour a shot into your beer (Superbeer)", "Hurricane Katrina", "Put salt in your beer (Michelada style)", "Viking shot", "Nudie", "Do an impression of the player to your left, or across", "Use your best pickup line on a player of the opposite sex");
-	  var rewards = new Array("Give another player a shot", "Give two other players a shot", "All other players drink", "Make another player kill their drink", "Switch two players’ drinks", "Choose a player to freestyle rap", "Choose a player to do an impression/accent of your choice");
+	  var rewards = new Array("Give another player a shot", "Give two other players a shot", "All other players drink", "Make another player kill their drink", "Switch two players’ drinks", "Choose a player to freestyle rap", "Choose a player to do an impression / accent of your choice");
 	  var type = new Array("Punishment", "Reward");
 	  var random_type = type[Math.floor(Math.random() * type.length)];
 	  setTimeout(function(){
