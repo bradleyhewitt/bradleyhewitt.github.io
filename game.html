@@ -243,6 +243,8 @@
 	  setTimeout(function(){
 		document.getElementById("buttonspace").style.visibility = "visible";
 	  }, 2500);
+		var correct_audio = new Audio('correct.mp3');
+		var incorrect_audio = new Audio('incorrect.mp3');
 	  	function correct(){
 			document.getElementById("correct").disabled = true;
 			document.getElementById("incorrect").disabled = true;
@@ -254,6 +256,7 @@
 			var random_reward = rewards[Math.floor(Math.random() * rewards.length)];
 			document.getElementById("type").innerHTML=random_reward;
 			document.getElementById("playagain").style.visibility = "visible";
+			correct_audio.play();
 		}
 		function incorrect(){
 			document.getElementById("correct").disabled = true;
@@ -266,6 +269,7 @@
 			var random_punishment = punishments[Math.floor(Math.random() * punishments.length)];
 			document.getElementById("type").innerHTML=random_punishment;
 			document.getElementById("playagain").style.visibility = "visible";
+			incorrect_audio.play();
 		}
     </script>
   </body>
