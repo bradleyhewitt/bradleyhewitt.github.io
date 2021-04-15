@@ -85,10 +85,6 @@
 	font-size: 100px;
 	visibility: hidden;
   }
-  #buttonspace {
-	margin: 30px;
-	visibility: hidden;
-  }
   #type {
 	margin-left: 30px;
 	margin-right: 30px;
@@ -101,6 +97,13 @@
 	height: 20px;
 	width: 20px;
   }
+  #buttonspace {
+	margin: 30px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+  }
   #correct {
 	background-color: #49c973;
 	border: 2px solid #49c973;
@@ -110,12 +113,12 @@
 	text-decoration: none;
 	font-weight: bold;
 	font-family: sans-serif;
-	display: inline-block;
 	font-size: 20px;
 	margin-right: 2px;
 	border-radius: 10px;
 	min-width: 120px;
 	outline: none;
+	display: none;
   }
   #correct:hover:enabled {
 	border: 2px solid #339654;
@@ -133,12 +136,12 @@
 	text-decoration: none;
 	font-weight: bold;
 	font-family: sans-serif;
-	display: inline-block;
 	font-size: 20px;
 	margin-left: 2px;
 	border-radius: 10px;
 	min-width: 120px;
 	outline: none;
+	display: none;
   }
   #incorrect:hover:enabled {
 	border: 2px solid #9c3535;
@@ -146,6 +149,35 @@
   #incorrect:disabled {
 	background-color: #ff8f8f;
 	border: 2px solid #ff8f8f;
+  }
+  #timerbar {
+	displax: inline-block;
+	align-content: center;
+	background-color: #bdbdbd;
+	height: 40px;
+	width: 400px;
+	margin: 0;
+	border-radius: 15px;
+	overflow: hidden;
+	text-align: right;
+	position: relative;
+	visibility: hidden;
+  }
+  #timerbarprogress {
+	width: 100%;
+	height: 100%;
+	background-color: #49c973;
+	float: left;
+	border-radius: 15px;
+	overflow: hidden;
+  }
+  #count {
+	margin: 0;
+	color: #ffffff;
+	font-size: 30px;
+	position: absolute;
+	right: 0;
+	padding-right: 12px;
   }
   </style>
   <meta charset="utf-8">
@@ -159,7 +191,10 @@
   <div id = "textdisplay">
 	<p id = "category"><span class = "text-wrapper"><span id="letters"></span></span></p>
 	<p id = "alphabet">&#8203;</p>
-	<div id = "buttonspace"><button id = "correct" onclick="correct();">Correct</button><button id = "incorrect" onclick="incorrect();">Incorrect</button></div>
+	<div id = "buttonspace">
+		<button id = "correct" onclick="correct();">Correct</button><button id = "incorrect" onclick="incorrect();">Incorrect</button>
+		<div id = "timerbar"><div id = "timerbarprogress"></div><p id = "count">10</p></div>
+	</div>
 	<p id = "type">&#8203;</p>
   </div>
   <p id = "playagain"><a href = "" onclick="location.reload();" style = "text-decoration: none; color: #ababab">Play Again <img id = "retryimg" src = "retry.png"></a></p>
@@ -239,12 +274,18 @@
 	  var random_type = type[Math.floor(Math.random() * type.length)];
 	  setTimeout(function(){
 		document.getElementById("alphabet").style.visibility = "visible";
-	  }, 1500);
+	  }, 2000);
+	  var width = 200;
+	  var timer;
 	  setTimeout(function(){
 		document.getElementById("buttonspace").style.visibility = "visible";
-	  }, 2500);
+		document.getElementById("timerbar").style.visibility = "visible";
+		timer = setInterval(function(){ decrementTimer() }, 50);
+	  }, 2000);
 		var correct_audio = new Audio('correct.mp3');
+		correct_audio.loop = false;
 		var incorrect_audio = new Audio('incorrect.mp3');
+		incorrect_audio.loop = false;
 	  	function correct(){
 			document.getElementById("correct").disabled = true;
 			document.getElementById("incorrect").disabled = true;
@@ -256,6 +297,7 @@
 			var random_reward = rewards[Math.floor(Math.random() * rewards.length)];
 			document.getElementById("type").innerHTML=random_reward;
 			document.getElementById("playagain").style.visibility = "visible";
+			correct_audio.load();
 			correct_audio.play();
 		}
 		function incorrect(){
@@ -269,7 +311,26 @@
 			var random_punishment = punishments[Math.floor(Math.random() * punishments.length)];
 			document.getElementById("type").innerHTML=random_punishment;
 			document.getElementById("playagain").style.visibility = "visible";
+			incorrect_audio.load();
 			incorrect_audio.play();
+		}
+		function decrementTimer(){
+			if (width % 20 == 0){
+				document.getElementById("count").innerHTML = width / 20;
+			}
+			width--;
+			if (width > 0){
+				document.getElementById("timerbarprogress").style.width = (width / 2) + '%';
+			} else {
+				document.getElementById("timerbarprogress").style.width = 0;
+				clearInterval(timer);
+				showButtons();
+			}
+		}
+		function showButtons(){
+			document.getElementById("timerbar").style.display = "none";
+			document.getElementById("correct").style.display = "inline-block";
+			document.getElementById("incorrect").style.display = "inline-block";
 		}
     </script>
   </body>
