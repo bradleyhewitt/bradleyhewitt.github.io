@@ -1,33 +1,51 @@
+<!DOCTYPE html>
 <html>
-   <head>
-      <title>CATEGORIES*</title>
-      <meta charset="utf-8">
-      <link rel="preconnect" href="https://fonts.gstatic.com">
-      <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="style.css">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-   </head>
-   <body>
-      <div class = "content">
-         <p id = "title">CATEGORIES*</p>
-         <div id = "textdisplay">
-            <div id = "gamewrapper">
-               <p id = "category"><span class = "text-wrapper"><span id="letters"></span></span></p>
-               <p id = "alphabet">&#8203;</p>
-               <div id = "buttonspace">
-                  <button id = "correct" onclick="correct();">Correct</button><button id = "incorrect" onclick="incorrect();">Incorrect</button>
-                  <div id = "timerbar">
-                     <div id = "timerbarprogress"></div>
-                     <div id = "countbox">
-                        <p id = "count">10</p>
-                     </div>
-                  </div>
-               </div>
-               <p id = "type">&#8203;</p>
-            </div>
-         </div>
-         <p id = "playagain"><a href = "" onclick="location.reload();" style = "text-decoration: none; color: #ababab">Play Again <img id = "retryimg" src = "retry.png"></a></p>
-      </div>
-      <script src = "script.js"></script>
-   </body>
+	<head>
+		<title>CATEGORIES*</title>
+		<meta charset="utf-8">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+	</head>
+	<body>
+		<div class = "content">
+			<p id = "title">CATEGORIES*</p>
+			<div id = "textdisplay">
+				<div id = "pregamewrapper">
+					<p id = "howtoplay">How to Play</p>
+					<p id = "description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque faucibus enim in diam vulputate, ac eleifend mi euismod. Integer gravida, arcu non sagittis hendrerit, ante nunc gravida ante, id feugiat sapien magna quis ex.</p>
+					<div class = "labelwrapper">
+						<label for="timerlength">Timer Length</label>
+						<input type="range" class="slider" id="timerlength" min="1" max="15" value="10" oninput="this.nextElementSibling.value = this.value">
+						<output>10</output>
+					</div>
+					<div class = "labelwrapper">
+						<label for="darkmode">Dark Mode</label>
+						<input type="checkbox" id="darkmode" onclick="toggleDark()">
+					</div>
+					<div id = "beginwrapper">
+						<button id = "begin" onclick="startGame();">Start Game</button>
+					</div>
+				</div>
+				<div id = "gamewrapper">
+					<p id = "category"><span class = "text-wrapper"><span id="letters"></span></span></p>
+					<p id = "alphabet">&#8203;</p>
+					</form>
+					<div id = "buttonspace">
+						<button id = "correct" onclick="correct();">Correct</button><button id = "incorrect" onclick="incorrect();">Incorrect</button>
+						<div id = "timerbar">
+							<div id = "timerbarprogress"></div>
+							<div id = "countbox">
+								<p id = "count">&#8203;</p>
+							</div>
+						</div>
+					</div>
+					<p id = "type">&#8203;</p>
+				</div>
+			</div>
+			<p id = "playagain"><a onclick="newTurn();" style = "text-decoration: none; color: #ababab">Play Again <img id = "retryimg" src = "retry.png"></a></p>
+		</div>
+		<script src = "script.js"></script>
+	</body>
 </html>

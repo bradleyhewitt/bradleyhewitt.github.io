@@ -20,6 +20,64 @@ body {
 	overflow: hidden;
 }
 
+#gamewrapper {
+	display: none;
+}
+
+#howtoplay {
+	margin-top: 30px;
+	margin-left: 30px;
+	margin-right: 30px;
+	margin-bottom: 0px;
+	text-decoration: underline;
+}
+
+#description {
+	margin-top: 10px;
+	margin-left: 30px;
+	margin-right: 30px;
+	margin-bottom: 30px;
+	font-size: 30px;
+	font-weight: normal;
+}
+
+.labelwrapper {
+	line-height: 0;
+	font-weight: normal;
+	margin: 30px;
+	font-size: 20px;
+}
+
+.labelwrapper > input {
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-right: 0;
+	margin-left: 5px;
+}
+
+#beginwrapper {
+	margin: 30px;
+}
+
+#begin {
+	background-color: #49c973;
+	border: 2px solid #49c973;
+	color: white;
+	padding: 14px 14px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	font-family: sans-serif;
+	font-size: 20px;
+	border-radius: 10px;
+	min-width: 120px;
+	outline: none;
+}
+
+#begin:hover:enabled {
+	border: 2px solid #339654;
+}
+
 #textdisplay {
 	display: flex;
 	flex-flow: column wrap;
