@@ -29,7 +29,7 @@ function makePortrait(){
 	document.getElementById("nextturn").style.minWidth = "40vw";
 	document.getElementById("incorrect").style.minWidth = "35vw";
 	document.getElementById("timerbar").style.height = "80px";
-	document.getElementById("timerbar").style.width = "65vw";
+	document.getElementById("timerbar").style.width = "70vw";
 	document.getElementById("count").style.fontSize = "40px";
 	document.getElementById("type").style.fontSize = "80%";
 	return;
@@ -44,8 +44,6 @@ function correct(){
 	document.getElementById("timerbarprogress").style.width = 0;
 	document.getElementById("timerbar").style.display = "none";
 	clearInterval(timer);
-	document.getElementById("correct").disabled = true;
-	document.getElementById("incorrect").disabled = true;
 	document.getElementById("correct").style.backgroundColor = "#49c973";
 	document.getElementById("correct").style.borderColor = "#339654";
 	hideButtons();
@@ -63,8 +61,6 @@ function incorrect(){
 	document.getElementById("timerbarprogress").style.width = 0;
 	document.getElementById("timerbar").style.display = "none";
 	clearInterval(timer);
-	document.getElementById("correct").disabled = true;
-	document.getElementById("incorrect").disabled = true;
 	document.getElementById("incorrect").style.backgroundColor = "#ff5c5c"
 	document.getElementById("incorrect").style.borderColor = "#9c3535";
 	hideButtons();
@@ -150,8 +146,6 @@ function newTurn() {
 	document.getElementById("alphabet").style.visibility = "hidden";
 	document.getElementById("timerbar").style.display = "flex";
     document.getElementById("timerbar").style.visibility = "hidden";
-	document.getElementById("correct").disabled = false;
-	document.getElementById("incorrect").disabled = false;
 	document.getElementById("correct").style.backgroundColor = "#49c973";
 	document.getElementById("correct").style.borderColor = "#49c973";
 	document.getElementById("incorrect").style.backgroundColor = "#ff5c5c"

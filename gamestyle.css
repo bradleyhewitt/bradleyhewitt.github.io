@@ -201,13 +201,8 @@ body {
 	display: none;
 }
 
-#correct:hover:enabled {
+#correct:hover {
 	border: 2px solid #339654;
-}
-
-#correct:disabled {
-	background-color: #6fc78c;
-	border-color: #6fc78c;
 }
 
 #incorrect {
@@ -227,13 +222,8 @@ body {
 	display: none;
 }
 
-#incorrect:hover:enabled {
+#incorrect:hover {
 	border: 2px solid #9c3535;
-}
-
-#incorrect:disabled {
-	background-color: #ff8f8f;
-	border: 2px solid #ff8f8f;
 }
 
 #timerbar {
@@ -298,11 +288,6 @@ body {
 	margin-top: 0px;
 }
 
-#nextturn:hover:enabled {
+#nextturn:hover {
 	border: 2px solid #339654;
-}
-
-#nextturn:disabled {
-	background-color: #6fc78c;
-	border-color: #6fc78c;
 }
