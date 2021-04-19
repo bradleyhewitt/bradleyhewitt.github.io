@@ -33,18 +33,23 @@
 					<p id = "alphabet">&#8203;</p>
 					</form>
 					<div id = "buttonspace">
-						<button id = "correct" onclick="correct();">Correct</button><button id = "incorrect" onclick="incorrect();">Incorrect</button>
 						<div id = "timerbar">
 							<div id = "timerbarprogress"></div>
 							<div id = "countbox">
 								<p id = "count">&#8203;</p>
 							</div>
 						</div>
+						<span class = "buttonwrapper">
+							<button id = "correct" onclick="correct();">Correct</button><button id = "incorrect" onclick="incorrect();">Incorrect</button>
+						</span>
 					</div>
 					<p id = "type">&#8203;</p>
+					<span class = "buttonwrapper">
+						<button id = "nextturn" onclick="newTurn();">Next Turn</button>
+					</span>
 				</div>
 			</div>
-			<p id = "playagain"><a onclick="newTurn();" style = "text-decoration: none; color: #ababab">Play Again <img id = "retryimg" src = "retry.png"></a></p>
+			<p id = "playagain"><a onclick="location.reload();" style = "text-decoration: none; color: #ababab">Restart Game <img id = "retryimg" src = "retry.png"></a></p>
 		</div>
 		<script src = "script.js"></script>
 	</body>

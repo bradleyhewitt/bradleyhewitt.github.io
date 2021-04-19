@@ -19,12 +19,14 @@ function makePortrait(){
 	document.getElementById("textdisplay").style.fontSize = "75px";
 	document.getElementById("title").style.fontSize = "100px";
 	document.getElementById("alphabet").style.fontSize = "125px";
-	document.getElementById("playagain").style.fontSize = "50px";
-	document.getElementById("retryimg").style.height = "45px";
-	document.getElementById("retryimg").style.width = "45px";
+	document.getElementById("playagain").style.fontSize = "30px";
+	document.getElementById("retryimg").style.height = "30px";
+	document.getElementById("retryimg").style.width = "30px";
 	document.getElementById("correct").style.fontSize = "60px";
+	document.getElementById("nextturn").style.fontSize = "60px";
 	document.getElementById("incorrect").style.fontSize = "60px";
 	document.getElementById("correct").style.minWidth = "35vw";
+	document.getElementById("nextturn").style.minWidth = "40vw";
 	document.getElementById("incorrect").style.minWidth = "35vw";
 	document.getElementById("timerbar").style.height = "80px";
 	document.getElementById("timerbar").style.width = "65vw";
@@ -39,31 +41,39 @@ var incorrect_audio = new Audio('incorrect.mp3');
 incorrect_audio.loop = false;
 
 function correct(){
+	document.getElementById("timerbarprogress").style.width = 0;
+	document.getElementById("timerbar").style.display = "none";
+	clearInterval(timer);
 	document.getElementById("correct").disabled = true;
 	document.getElementById("incorrect").disabled = true;
 	document.getElementById("correct").style.backgroundColor = "#49c973";
 	document.getElementById("correct").style.borderColor = "#339654";
+	hideButtons();
 	document.getElementById("buttonspace").style.marginBottom = "0px";
 	document.getElementById("type").style.display = "inline-block";
 	document.getElementById("type").style.color = "#49c973";
 	var random_reward = rewards[Math.floor(Math.random() * rewards.length)];
 	document.getElementById("type").innerHTML=random_reward;
-	document.getElementById("playagain").style.visibility = "visible";
+	document.getElementById("nextturn").style.display = "inline-block";
 	correct_audio.load();
 	correct_audio.play();
 }
 
 function incorrect(){
+	document.getElementById("timerbarprogress").style.width = 0;
+	document.getElementById("timerbar").style.display = "none";
+	clearInterval(timer);
 	document.getElementById("correct").disabled = true;
 	document.getElementById("incorrect").disabled = true;
 	document.getElementById("incorrect").style.backgroundColor = "#ff5c5c"
 	document.getElementById("incorrect").style.borderColor = "#9c3535";
+	hideButtons();
 	document.getElementById("buttonspace").style.marginBottom = "0px";
 	document.getElementById("type").style.display = "inline-block";
 	document.getElementById("type").style.color = "#ff5c5c";
 	var random_punishment = punishments[Math.floor(Math.random() * punishments.length)];
 	document.getElementById("type").innerHTML=random_punishment;
-	document.getElementById("playagain").style.visibility = "visible";
+	document.getElementById("nextturn").style.display = "inline-block";
 	incorrect_audio.load();
 	incorrect_audio.play();
 }
@@ -78,16 +88,21 @@ function decrementTimer(length){
 	if (width > 0){
 		document.getElementById("timerbarprogress").style.width = (width / 2) + '%';
 	} else {
+		document.getElementById("count").innerHTML = 0;
 		document.getElementById("timerbarprogress").style.width = 0;
+		document.getElementById("timerbar").style.display = "none";
 		clearInterval(timer);
-		showButtons();
 	}
 }
 
 function showButtons(){
-	document.getElementById("timerbar").style.display = "none";
 	document.getElementById("correct").style.display = "inline-block";
 	document.getElementById("incorrect").style.display = "inline-block";
+}
+
+function hideButtons(){
+	document.getElementById("correct").style.display = "none";
+	document.getElementById("incorrect").style.display = "none";
 }
 
 function startGame(){
@@ -131,20 +146,19 @@ function newTurn() {
 	timerlength = document.getElementById("timerlength").value;
 	document.getElementById("count").innerHTML = timerlength;
 	clearInterval(timer);
+	document.getElementById("nextturn").style.display = "none";
 	document.getElementById("alphabet").style.visibility = "hidden";
 	document.getElementById("timerbar").style.display = "flex";
     document.getElementById("timerbar").style.visibility = "hidden";
 	document.getElementById("correct").disabled = false;
 	document.getElementById("incorrect").disabled = false;
-	document.getElementById("correct").style.display = "none";
-	document.getElementById("incorrect").style.display = "none";
 	document.getElementById("correct").style.backgroundColor = "#49c973";
 	document.getElementById("correct").style.borderColor = "#49c973";
 	document.getElementById("incorrect").style.backgroundColor = "#ff5c5c"
 	document.getElementById("incorrect").style.borderColor = "#ff5c5c";
 	document.getElementById("buttonspace").style.marginBottom = "30px";
 	document.getElementById("type").style.display = "none";
-	document.getElementById("playagain").style.visibility = "hidden";
+	document.getElementById("playagain").style.visibility = "visible";
 	document.getElementById("timerbarprogress").style.width = width;
 	var random_reward = rewards[Math.floor(Math.random() * rewards.length)];
 	document.getElementById("type").innerHTML=random_reward;
@@ -174,6 +188,7 @@ function newTurn() {
     }, 2000);
     setTimeout(function() {
         document.getElementById("timerbar").style.visibility = "visible";
+		showButtons();
 		timer = setInterval(function() {
 			decrementTimer(timerlength);
 		}, Math.floor(50 * (timerlength / 10)));

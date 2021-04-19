@@ -117,7 +117,7 @@ body {
 }
 
 #playagain {
-	font-size: 20px;
+	font-size: 15px;
 	font-family: 'Open Sans', sans-serif;
 	color: #ababab;
 	margin: 0;
@@ -159,23 +159,29 @@ body {
 #type {
 	margin-left: 30px;
 	margin-right: 30px;
-	margin-bottom: 30px;
+	margin-bottom: 5px;
 	margin-top: 0px;
 	display: none;
 }
 
 #retryimg {
 	vertical-align: middle;
-	height: 20px;
-	width: 20px;
+	height: 15px;
+	width: 15px;
 }
 
 #buttonspace {
 	margin: 30px;
 	text-align: center;
 	display: flex;
+	flex-flow: column wrap;
 	justify-content: center;
 	align-content: center;
+}
+
+.buttonwrapper {
+	display: block;
+	margin: 0;
 }
 
 #correct {
@@ -270,4 +276,33 @@ body {
 	margin: 0;
 	color: #ffffff;
 	font-size: 30px;
+}
+
+#nextturn {
+	background-color: #49c973;
+	border: 2px solid #49c973;
+	color: white;
+	padding: 14px 14px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	font-family: sans-serif;
+	font-size: 20px;
+	border-radius: 10px;
+	min-width: 140px;
+	outline: none;
+	display: none;
+	margin-left: 30px;
+	margin-right: 30px;
+	margin-bottom: 30px;
+	margin-top: 0px;
+}
+
+#nextturn:hover:enabled {
+	border: 2px solid #339654;
+}
+
+#nextturn:disabled {
+	background-color: #6fc78c;
+	border-color: #6fc78c;
 }
