@@ -23,9 +23,11 @@ function makePortrait(){
 	document.getElementById("retryimg").style.height = "30px";
 	document.getElementById("retryimg").style.width = "30px";
 	document.getElementById("correct").style.fontSize = "60px";
+	document.getElementById("begin").style.fontSize = "60px";
 	document.getElementById("nextturn").style.fontSize = "60px";
 	document.getElementById("incorrect").style.fontSize = "60px";
 	document.getElementById("correct").style.minWidth = "35vw";
+	document.getElementById("begin").style.minWidth = "35vw";
 	document.getElementById("nextturn").style.minWidth = "40vw";
 	document.getElementById("incorrect").style.minWidth = "35vw";
 	document.getElementById("timerbar").style.height = "80px";
@@ -197,13 +199,18 @@ function newTurn() {
     }, 2000);
 }
 
+var dark = false;
+
 function toggleDark(){
-	var checkBox = document.getElementById("darkmode");
-	if (checkBox.checked == true){
+	if (dark == false){
 		document.body.style.backgroundColor = "#363636";
 		document.getElementById("textdisplay").style.backgroundColor = "#5c5c5c";
+		document.getElementById("darkmode").style.backgroundColor = "#33c9ff";
+		dark = true;
 	} else {
 		document.body.style.backgroundColor = "#f5f5f5";
 		document.getElementById("textdisplay").style.backgroundColor = "#ebebeb";
+		document.getElementById("darkmode").style.backgroundColor = "inherit";
+		dark = false;
 	}
 }

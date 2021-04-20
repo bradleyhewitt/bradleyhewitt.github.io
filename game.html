@@ -14,7 +14,7 @@
 			<div id = "textdisplay">
 				<div id = "pregamewrapper">
 					<p id = "howtoplay">How to Play</p>
-					<p id = "description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque faucibus enim in diam vulputate, ac eleifend mi euismod. Integer gravida, arcu non sagittis hendrerit, ante nunc gravida ante, id feugiat sapien magna quis ex.</p>
+					<p id = "description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque faucibus enim in diam vulputate, ac eleifend mi euismod.</p>
 					<div class = "labelwrapper">
 						<label for="timerlength">Timer Length</label>
 						<input type="range" class="slider" id="timerlength" min="1" max="15" value="10" oninput="this.nextElementSibling.value = this.value">
@@ -22,7 +22,7 @@
 					</div>
 					<div class = "labelwrapper">
 						<label for="darkmode">Dark Mode</label>
-						<input type="checkbox" id="darkmode" onclick="toggleDark()">
+						<span class="checkbox" id="darkmode" onclick="toggleDark();"></span>
 					</div>
 					<div id = "beginwrapper">
 						<button id = "begin" onclick="startGame();">Start Game</button>
