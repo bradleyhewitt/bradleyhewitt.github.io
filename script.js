@@ -30,8 +30,16 @@ function makePortrait(){
 	document.getElementById("incorrect").style.minWidth = "35vw";
 	document.getElementById("timerbar").style.height = "80px";
 	document.getElementById("timerbar").style.width = "70vw";
+	document.getElementById("timerbar").style.borderRadius = "30px";
+	document.getElementById("timerbarprogress").style.borderRadius = "30px";
 	document.getElementById("count").style.fontSize = "40px";
 	document.getElementById("type").style.fontSize = "80%";
+	document.getElementById("description").style.fontSize = "80%";
+	document.getElementById("begin").style.borderRadius = "20px";
+	document.getElementById("correct").style.borderRadius = "20px";
+	document.getElementById("incorrect").style.borderRadius = "20px";
+	document.getElementById("nextturn").style.borderRadius = "20px";
+	document.getElementById("textdisplay").style.borderRadius = "80px";
 	return;
 }
 
