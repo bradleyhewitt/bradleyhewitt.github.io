@@ -16,10 +16,19 @@
 				<div id = "pregamewrapper">
 					<p id = "howtoplay">How to Play</p>
 					<p id = "description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque faucibus enim in diam vulputate, ac eleifend mi euismod.</p>
-					<div class = "labelwrapper">
+					<div class = "labelwrapper" id = "timerwrapper">
 						<label for="timerlength">Timer Length</label>
 						<input type="range" class="slider" id="timerlength" min="1" max="15" value="10" oninput="this.nextElementSibling.value = this.value">
 						<output>10</output>
+					</div>
+					<div class = "labelwrapper" id = "playerlabelwrapper">
+						<label>Players</label>
+					</div>
+					<div class = "playerwrapper">
+						<input type="text" id="player1" pattern="[A-Za-z0-9]{1,20}" class="textbox" required>
+					</div>
+					<div class = "labelwrapper" id = "addplayerwrapper">
+						<button onclick="addPlayer();">Add Player</button>
 					</div>
 					<div class = "labelwrapper">
 						<label for="darkmode">Dark Mode</label>
@@ -30,6 +39,7 @@
 					</div>
 				</div>
 				<div id = "gamewrapper">
+					<p id = "player">&#8203;</p>
 					<p id = "category"><span class = "text-wrapper"><span id="letters"></span></span></p>
 					<p id = "alphabet">&#8203;</p>
 					</form>

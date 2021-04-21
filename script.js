@@ -17,6 +17,7 @@ function makePortrait(){
 	document.getElementById("textdisplay").style.width = "80vw";
 	document.getElementById("textdisplay").style.justifyContent = "space_between";
 	document.getElementById("textdisplay").style.fontSize = "75px";
+	document.getElementById("player").style.fontSize = "60px";
 	document.getElementById("title").style.fontSize = "100px";
 	document.getElementById("alphabet").style.fontSize = "125px";
 	document.getElementById("playagain").style.fontSize = "30px";
@@ -111,9 +112,39 @@ function hideButtons(){
 	document.getElementById("incorrect").style.display = "none";
 }
 
+var players = 1;
+var currentPlayerDiv = document.getElementById("player1");
+var currentPlayer;
+var playerList = new Array();
+
+function addPlayer(){
+    var clone = currentPlayerDiv.cloneNode(true);
+    clone.id = "player" + ++players;
+	clone.value = "";
+    currentPlayerDiv.parentNode.insertBefore(clone, currentPlayerDiv.nextSibling);
+	currentPlayerDiv = clone;
+}
+
+function createPlayerList(){
+	var i;
+	for (i = 1; i < (players + 1); i++){
+		var player = document.getElementById("player" + i);
+		playerList.push(player.value);
+	}
+}
+
+function nextPlayer(){
+	var i = currentPlayer + 1;
+	if (i >= playerList.length){
+		i = 0;
+	}
+	return i;
+}
+
 function startGame(){
 	document.getElementById("pregamewrapper").style.display = "none";
 	document.getElementById("gamewrapper").style.display = "block";
+	createPlayerList();
 	newTurn();
 }
 
@@ -146,6 +177,12 @@ var punishments = new Array("Take a shot", "Take a shot", "Take a shot", "Take a
 var rewards = new Array("Give another player a shot", "Give another player a shot", "Give two other players a shot", "All other players drink", "All other players drink", "All other players drink", "Make another player kill their drink", "Make another player kill their drink", "Switch two players’ drinks", "Choose a player to freestyle rap", "Choose a player to do an impression / accent of your choice", "Start a game of telephone. All other players must drink after passing the message. You must drink if your message ends unaltered.", "Choose two players to kiss (or arm-wrestle, but that’s totally up to you)...", "Choose a player to think of a haiku. If you don’t like it, they drink.", "Staring contest, loser takes a shot.", "Choose another player to dance for you. Everyone else drink while enjoying the show.", "Tea Time: Choose another player who from now on must raise their pinky finger whenever drinking. Any time they’re caught slacking by another, they must take a shot.");
 
 function newTurn() {
+	if (currentPlayer == null){
+		currentPlayer = Math.floor(Math.random() * playerList.length);
+	} else {
+		currentPlayer = nextPlayer();
+	}
+	document.getElementById("player").innerHTML = playerList[currentPlayer];
 	var timerlength = document.getElementById("timerlength").value;
 	document.getElementById("timerbarprogress").style.animation = "none";
 	document.getElementById("timerbarprogress").offsetHeight;
@@ -203,11 +240,13 @@ function toggleDark(){
 	if (dark == false){
 		document.body.style.backgroundColor = "#363636";
 		document.getElementById("textdisplay").style.backgroundColor = "#5c5c5c";
+		document.getElementById("player").style.color = "#ffffff";
 		document.getElementById("darkmode").style.backgroundColor = "#33c9ff";
 		dark = true;
 	} else {
 		document.body.style.backgroundColor = "#f5f5f5";
 		document.getElementById("textdisplay").style.backgroundColor = "#ebebeb";
+		document.getElementById("player").style.color = "#5c5c5c";
 		document.getElementById("darkmode").style.backgroundColor = "inherit";
 		dark = false;
 	}

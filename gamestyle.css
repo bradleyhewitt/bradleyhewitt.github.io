@@ -46,7 +46,10 @@ body {
 	justify-content: center;
 	line-height: 0;
 	font-weight: normal;
-	margin: 30px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 10px;
+	margin-right: 10px;
 	font-size: 20px;
 }
 
@@ -55,6 +58,44 @@ body {
 	margin-bottom: 0;
 	margin-right: 10px;
 	margin-left: 10px;
+}
+
+.playerwrapper {
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	justify-content: center;
+	line-height: 0;
+	font-weight: normal;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 20px;
+}
+
+.playerwrapper > input {
+	margin-top: 0;
+	margin-bottom: 5px;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+#addplayerwrapper {
+	margin-top: 0px;
+}
+
+#playerlabelwrapper {
+	margin-bottom: 15px;
+}
+
+#player {
+	margin-left: 30px;
+	margin-right: 30px;
+	margin-bottom: 10px;
+	margin-top: 20px;
+	color: #5c5c5c;
+	font-size: 40px;
 }
 
 #beginwrapper {
@@ -134,7 +175,7 @@ body {
 	margin-left: 30px;
 	margin-right: 30px;
 	margin-bottom: 30px;
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
 #category .text_wrapper {
@@ -359,6 +400,18 @@ body {
 
 .checkbox:hover {
 	cursor: pointer;
+}
+
+.textbox {
+	outline: none;
+}
+
+.textbox:invalid {
+  border: red solid 2px;
+}
+
+.textbox:valid {
+  border: green solid 2px;
 }
 
 #darkmode {
