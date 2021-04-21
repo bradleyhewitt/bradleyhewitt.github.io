@@ -42,6 +42,10 @@ function makePortrait(){
 	document.getElementById("incorrect").style.borderRadius = "20px";
 	document.getElementById("nextturn").style.borderRadius = "20px";
 	document.getElementById("textdisplay").style.borderRadius = "80px";
+	$(".labelwrapper").css("font-size", "60%");
+	$(".slider").css("height", "40px");
+	$('input[type=range]').addClass('mobileslider');
+	$(".checkbox").css({"height": "40px", "width": "40px"});
 	return;
 }
 
@@ -51,9 +55,7 @@ var incorrect_audio = new Audio('incorrect.mp3');
 incorrect_audio.loop = false;
 
 function correct(){
-	document.getElementById("timerbarprogress").style.width = 0;
-	document.getElementById("timerbar").style.display = "none";
-	clearInterval(timer);
+	stopCounter();
 	document.getElementById("correct").style.backgroundColor = "#49c973";
 	document.getElementById("correct").style.borderColor = "#339654";
 	hideButtons();
@@ -68,9 +70,7 @@ function correct(){
 }
 
 function incorrect(){
-	document.getElementById("timerbarprogress").style.width = 0;
-	document.getElementById("timerbar").style.display = "none";
-	clearInterval(timer);
+	stopCounter();
 	document.getElementById("incorrect").style.backgroundColor = "#ff5c5c"
 	document.getElementById("incorrect").style.borderColor = "#9c3535";
 	hideButtons();
@@ -84,21 +84,21 @@ function incorrect(){
 	incorrect_audio.play();
 }
 
-var width;
+var timer;
 
-function decrementTimer(length){
-	if (width % Math.floor(200 / length) == 0){
-		document.getElementById("count").innerHTML = Math.floor(length * (width / 200));
+function updateCounter(){
+	var time = document.getElementById("count").innerHTML;
+	if (time == 1){
+		stopCounter();
+		return;
 	}
-	width--;
-	if (width > 0){
-		document.getElementById("timerbarprogress").style.width = (width / 2) + '%';
-	} else {
-		document.getElementById("count").innerHTML = 0;
-		document.getElementById("timerbarprogress").style.width = 0;
-		document.getElementById("timerbar").style.display = "none";
-		clearInterval(timer);
-	}
+	document.getElementById("count").innerHTML = time - 1;
+}
+
+function stopCounter(){
+	document.getElementById("timerbarprogress").style.width = 0;
+	document.getElementById("timerbar").style.display = "none";
+	clearInterval(timer);
 }
 
 function showButtons(){
@@ -144,14 +144,14 @@ var category = new Array("Celebrities", "Child stars", "Famous artists (non-musi
 var alphabet = new Array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "R", "S", "T", "U", "V", "W", "Y");
 var punishments = new Array("Take a shot", "Take a shot", "Take a shot", "Take a shot", "Take two shots (double trouble)", "Take two shots (double trouble)", "Take a shot and chase it with beer", "Take a shot and chase it with beer", "Take a shot and chase it with beer", "Shotgun a beer", "Shotgun a beer", "Take a shot poured by another player", "Take a shot poured by another player", "Take a shot with another player of your choice", "Take a shot with another player of your choice", "Drink some beer", "Drink some beer", "Drink some beer", "Drink some beer", "Finish your beer", "Finish your beer", "One-beer game of flip-cup with another player", "Do 5 pushups", "Sing your favorite lyrics", "Post a horse quote on your story", "Pour a shot into your beer (Superbeer)", "Hurricane Katrina", "Put salt in your beer (Michelada style)", "Viking shot", "Nudie", "Do an impression of the player to your left, or across", "Use your best pickup line on a player of the opposite sex", "Take a shot poured in your mouth by another player", "Call a family member and tell them how drunk you are", "Stand on one leg until your next turn. If you fall, take a shot.", "Take a swig of beer and sing the alphabet before swallowing.", "DUI CHECK: straight-line walk (heel to toe) nine steps. If you fall or lose balance in any way, take a shot.");
 var rewards = new Array("Give another player a shot", "Give another player a shot", "Give two other players a shot", "All other players drink", "All other players drink", "All other players drink", "Make another player kill their drink", "Make another player kill their drink", "Switch two players’ drinks", "Choose a player to freestyle rap", "Choose a player to do an impression / accent of your choice", "Start a game of telephone. All other players must drink after passing the message. You must drink if your message ends unaltered.", "Choose two players to kiss (or arm-wrestle, but that’s totally up to you)...", "Choose a player to think of a haiku. If you don’t like it, they drink.", "Staring contest, loser takes a shot.", "Choose another player to dance for you. Everyone else drink while enjoying the show.", "Tea Time: Choose another player who from now on must raise their pinky finger whenever drinking. Any time they’re caught slacking by another, they must take a shot.");
-var timer;
-var timerlength;
 
 function newTurn() {
-	width = 200;
-	timerlength = document.getElementById("timerlength").value;
+	var timerlength = document.getElementById("timerlength").value;
+	document.getElementById("timerbarprogress").style.animation = "none";
+	document.getElementById("timerbarprogress").offsetHeight;
+	document.getElementById("timerbarprogress").style.animation = "updateTimer " + timerlength + "s linear 0s 1 forwards";
+	document.getElementById("timerbarprogress").style.animationPlayState = "paused";
 	document.getElementById("count").innerHTML = timerlength;
-	clearInterval(timer);
 	document.getElementById("nextturn").style.display = "none";
 	document.getElementById("alphabet").style.visibility = "hidden";
 	document.getElementById("timerbar").style.display = "flex";
@@ -163,7 +163,6 @@ function newTurn() {
 	document.getElementById("buttonspace").style.marginBottom = "30px";
 	document.getElementById("type").style.display = "none";
 	document.getElementById("playagain").style.visibility = "visible";
-	document.getElementById("timerbarprogress").style.width = width;
 	var random_reward = rewards[Math.floor(Math.random() * rewards.length)];
 	document.getElementById("type").innerHTML=random_reward;
     var random_category = category[Math.floor(Math.random() * category.length)];
@@ -193,9 +192,8 @@ function newTurn() {
     setTimeout(function() {
         document.getElementById("timerbar").style.visibility = "visible";
 		showButtons();
-		timer = setInterval(function() {
-			decrementTimer(timerlength);
-		}, Math.floor(50 * (timerlength / 10)));
+		document.getElementById("timerbarprogress").style.animationPlayState = "running";
+		timer = setInterval(updateCounter, 1000);
     }, 2000);
 }
 
