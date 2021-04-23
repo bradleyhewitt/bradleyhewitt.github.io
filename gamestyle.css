@@ -86,7 +86,7 @@ body {
 }
 
 #playerlabelwrapper {
-	margin-bottom: 15px;
+	margin-bottom: 20px;
 }
 
 #player {
@@ -251,6 +251,25 @@ body {
 	border: 2px solid #339654;
 }
 
+#addplayer {
+	background-color: #49c973;
+	border: 2px solid #49c973;
+	color: white;
+	padding: 4px 14px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	font-family: sans-serif;
+	font-size: 12px;
+	border-radius: 15px;
+	min-width: 120px;
+	outline: none;
+}
+
+#addplayer:hover {
+	border: 2px solid #339654;
+}
+
 #incorrect {
 	background-color: #ff5c5c;
 	border: 2px solid #ff5c5c;
@@ -403,15 +422,20 @@ body {
 }
 
 .textbox {
+	background-color: #d3d3d3;
+	font-family: 'Open Sans', sans-serif;
+	height: 20px;
 	outline: none;
+	border-radius: 5px;
+	padding-left: 5px;
 }
 
 .textbox:invalid {
-  border: red solid 2px;
+	border: #9c3535 solid 2px;
 }
 
 .textbox:valid {
-  border: green solid 2px;
+	border: #339654 solid 2px;
 }
 
 #darkmode {
