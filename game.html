@@ -11,21 +11,20 @@
 	</head>
 	<body>
 		<div class = "content">
-			<p id = "title">CATEGORIES*</p>
-			<div id = "textdisplay">
-				<div id = "pregamewrapper">
+			<div id = "pregamewrapper">
+				<div class = "textdisplay">
 					<p id = "howtoplay">How to Play</p>
 					<p id = "description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque faucibus enim in diam vulputate, ac eleifend mi euismod.</p>
 					<div class = "labelwrapper" id = "timerwrapper">
-						<label for="timerlength">Timer Length</label>
-						<input type="range" class="slider" id="timerlength" min="1" max="15" value="10" oninput="this.nextElementSibling.value = this.value">
-						<output>10</output>
+						<label for="timerlength">Categories Timer</label>
+						<input type="range" class="slider" id="timerlength" min="1" max="15" value="10" oninput="this.nextElementSibling.value = this.value + 's'">
+						<output>10s</output>
 					</div>
 					<div class = "labelwrapper" id = "playerlabelwrapper">
 						<label>Players</label>
 					</div>
 					<div class = "playerwrapper">
-						<input type="text" id="player1" pattern="[A-Za-z0-9]{1,20}" class="textbox" required>
+						<input type="text" id="player1" class="textbox" required>
 					</div>
 					<div class = "labelwrapper" id = "addplayerwrapper">
 						<button id = "addplayer" onclick="addPlayer();">Add Player</button>
@@ -35,11 +34,15 @@
 						<span class="checkbox" id="darkmode" onclick="toggleDark();"></span>
 					</div>
 					<div id = "beginwrapper">
-						<button id = "begin" onclick="startGame();">Start Game</button>
+						<button id = "begin" onclick="tryToStart();">Start Game</button>
+						<p id = "cantstart">Could not start game.</p>
 					</div>
 				</div>
-				<div id = "gamewrapper">
-					<p id = "player">&#8203;</p>
+			</div>
+			<div id = "categorieswrapper">
+				<p id = "title">CATEGORIES</p>
+				<div class = "textdisplay">
+					<p class = "player">&#8203;</p>
 					<p id = "category"><span class = "text-wrapper"><span id="letters"></span></span></p>
 					<p id = "alphabet">&#8203;</p>
 					</form>
@@ -56,7 +59,17 @@
 					</div>
 					<p id = "type">&#8203;</p>
 					<span class = "buttonwrapper">
-						<button id = "nextturn" onclick="newTurn();">Next Turn</button>
+						<button class = "nextturn" onclick="newTurn();">Next Turn</button>
+					</span>
+				</div>
+			</div>
+			<div id = "flipcupwrapper">
+				<p id = "title">FLIP CUP</p>
+				<div class = "textdisplay">
+					<p class = "player">&#8203;</p>
+					<p class = "gamedesc">Engage in a game of flip cup against {otherplayer}</p>
+ 					<span class = "buttonwrapper">
+						<button class = "nextturn" onclick="newTurn();">Next Turn</button>
 					</span>
 				</div>
 			</div>

@@ -17,7 +17,7 @@ function makePortrait(){
 	document.getElementById("textdisplay").style.width = "80vw";
 	document.getElementById("textdisplay").style.justifyContent = "space_between";
 	document.getElementById("textdisplay").style.fontSize = "75px";
-	document.getElementById("player").style.fontSize = "60px";
+	$(".player").css("font-size", "60px");
 	document.getElementById("title").style.fontSize = "100px";
 	document.getElementById("alphabet").style.fontSize = "125px";
 	document.getElementById("playagain").style.fontSize = "30px";
@@ -25,11 +25,11 @@ function makePortrait(){
 	document.getElementById("retryimg").style.width = "30px";
 	document.getElementById("correct").style.fontSize = "60px";
 	document.getElementById("begin").style.fontSize = "60px";
-	document.getElementById("nextturn").style.fontSize = "60px";
+	$(".nextturn").css("font-size", "60px");
 	document.getElementById("incorrect").style.fontSize = "60px";
 	document.getElementById("correct").style.minWidth = "35vw";
 	document.getElementById("begin").style.minWidth = "35vw";
-	document.getElementById("nextturn").style.minWidth = "40vw";
+	$(".nextturn").css("min-width", "40vw");
 	document.getElementById("incorrect").style.minWidth = "35vw";
 	document.getElementById("timerbar").style.height = "80px";
 	document.getElementById("timerbar").style.width = "70vw";
@@ -41,7 +41,7 @@ function makePortrait(){
 	document.getElementById("begin").style.borderRadius = "20px";
 	document.getElementById("correct").style.borderRadius = "20px";
 	document.getElementById("incorrect").style.borderRadius = "20px";
-	document.getElementById("nextturn").style.borderRadius = "20px";
+	$(".nextturn").css("border-radius", "20px");
 	document.getElementById("textdisplay").style.borderRadius = "80px";
 	$(".labelwrapper").css("font-size", "60%");
 	$(".slider").css("height", "40px");
@@ -65,7 +65,7 @@ function correct(){
 	document.getElementById("type").style.color = "#49c973";
 	var random_reward = rewards[Math.floor(Math.random() * rewards.length)];
 	document.getElementById("type").innerHTML=random_reward;
-	document.getElementById("nextturn").style.display = "inline-block";
+	$(".nextturn").css("display", "inline-block");
 	correct_audio.load();
 	correct_audio.play();
 }
@@ -80,7 +80,7 @@ function incorrect(){
 	document.getElementById("type").style.color = "#ff5c5c";
 	var random_punishment = punishments[Math.floor(Math.random() * punishments.length)];
 	document.getElementById("type").innerHTML=random_punishment;
-	document.getElementById("nextturn").style.display = "inline-block";
+	$(".nextturn").css("display", "inline-block");
 	incorrect_audio.load();
 	incorrect_audio.play();
 }
@@ -126,10 +126,13 @@ function addPlayer(){
 }
 
 function createPlayerList(){
+	playerList = [];
 	var i;
 	for (i = 1; i < (players + 1); i++){
 		var player = document.getElementById("player" + i);
-		playerList.push(player.value);
+		if (player.value != ""){
+			playerList.push(player.value);
+		}
 	}
 }
 
@@ -141,10 +144,48 @@ function nextPlayer(){
 	return i;
 }
 
+function getRandomPlayer(){
+	if (playerList.length == 0){
+		return -1;
+	}
+	return Math.floor(Math.random() * playerList.length);
+}
+
+function getOtherPlayer(){
+	if (playerList.length == 0){
+		return -1;
+	}
+	var randomPlayer = getRandomPlayer();
+	while (randomPlayer == currentPlayer){
+		randomPlayer = getRandomPlayer();
+	}
+	return randomPlayer;
+}
+
+let minigames = ['categories', 'flipcup']
+var current = "NULL";
+
+function decideTurn(){
+	var random_game = minigames[Math.floor(Math.random() * minigames.length)];
+	current = random_game;
+	if (current == "categories"){
+		newCategoriesTurn();
+	} else if (current == "flipcup"){
+		newFlipCupTurn();
+	}
+	$(document).ready(function(){
+		document.getElementById(current + "wrapper").style.display = "block";
+	});
+}
+
+function tryToStart(){
+	createPlayerList();
+	startGame();
+}
+
 function startGame(){
 	document.getElementById("pregamewrapper").style.display = "none";
-	document.getElementById("gamewrapper").style.display = "block";
-	createPlayerList();
+	document.getElementById("playagain").style.visibility = "visible";
 	newTurn();
 }
 
@@ -176,20 +217,37 @@ var alphabet = new Array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", 
 var punishments = new Array("Take a shot", "Take a shot", "Take a shot", "Take a shot", "Take two shots (double trouble)", "Take two shots (double trouble)", "Take a shot and chase it with beer", "Take a shot and chase it with beer", "Take a shot and chase it with beer", "Shotgun a beer", "Shotgun a beer", "Take a shot poured by another player", "Take a shot poured by another player", "Take a shot with another player of your choice", "Take a shot with another player of your choice", "Drink some beer", "Drink some beer", "Drink some beer", "Drink some beer", "Finish your beer", "Finish your beer", "One-beer game of flip-cup with another player", "Do 5 pushups", "Sing your favorite lyrics", "Post a horse quote on your story", "Pour a shot into your beer (Superbeer)", "Hurricane Katrina", "Put salt in your beer (Michelada style)", "Viking shot", "Nudie", "Do an impression of the player to your left, or across", "Use your best pickup line on a player of the opposite sex", "Take a shot poured in your mouth by another player", "Call a family member and tell them how drunk you are", "Stand on one leg until your next turn. If you fall, take a shot.", "Take a swig of beer and sing the alphabet before swallowing.", "DUI CHECK: straight-line walk (heel to toe) nine steps. If you fall or lose balance in any way, take a shot.");
 var rewards = new Array("Give another player a shot", "Give another player a shot", "Give two other players a shot", "All other players drink", "All other players drink", "All other players drink", "Make another player kill their drink", "Make another player kill their drink", "Switch two players’ drinks", "Choose a player to freestyle rap", "Choose a player to do an impression / accent of your choice", "Start a game of telephone. All other players must drink after passing the message. You must drink if your message ends unaltered.", "Choose two players to kiss (or arm-wrestle, but that’s totally up to you)...", "Choose a player to think of a haiku. If you don’t like it, they drink.", "Staring contest, loser takes a shot.", "Choose another player to dance for you. Everyone else drink while enjoying the show.", "Tea Time: Choose another player who from now on must raise their pinky finger whenever drinking. Any time they’re caught slacking by another, they must take a shot.");
 
-function newTurn() {
-	if (currentPlayer == null){
-		currentPlayer = Math.floor(Math.random() * playerList.length);
-	} else {
-		currentPlayer = nextPlayer();
+function hideAllGames(){
+	if (current != "NULL"){
+		document.getElementById(current + "wrapper").style.display = "none";
 	}
-	document.getElementById("player").innerHTML = playerList[currentPlayer];
+}
+
+function newTurn(){
+	hideAllGames();
+	if (playerList.length != 0){
+		if (currentPlayer == null){
+			currentPlayer = Math.floor(Math.random() * playerList.length);
+		} else { 
+			currentPlayer = nextPlayer();
+		}
+		$("p.player").html(playerList[currentPlayer]);
+	}
+	decideTurn();
+}
+
+function newCategoriesTurn() {
+	if (playerList.length == 0){
+		$(".player").css("display", "none");
+		$(".player").css("height", "0");
+	}
 	var timerlength = document.getElementById("timerlength").value;
 	document.getElementById("timerbarprogress").style.animation = "none";
 	document.getElementById("timerbarprogress").offsetHeight;
 	document.getElementById("timerbarprogress").style.animation = "updateTimer " + timerlength + "s linear 0s 1 forwards";
 	document.getElementById("timerbarprogress").style.animationPlayState = "paused";
 	document.getElementById("count").innerHTML = timerlength;
-	document.getElementById("nextturn").style.display = "none";
+	$(".nextturn").css("display", "none");
 	document.getElementById("alphabet").style.visibility = "hidden";
 	document.getElementById("timerbar").style.display = "flex";
     document.getElementById("timerbar").style.visibility = "hidden";
@@ -199,7 +257,6 @@ function newTurn() {
 	document.getElementById("incorrect").style.borderColor = "#ff5c5c";
 	document.getElementById("buttonspace").style.marginBottom = "30px";
 	document.getElementById("type").style.display = "none";
-	document.getElementById("playagain").style.visibility = "visible";
 	var random_reward = rewards[Math.floor(Math.random() * rewards.length)];
 	document.getElementById("type").innerHTML=random_reward;
     var random_category = category[Math.floor(Math.random() * category.length)];
@@ -234,19 +291,32 @@ function newTurn() {
     }, 2000);
 }
 
+function newFlipCupTurn() {
+	if (playerList.length == 0){
+		$(".player").css("display", "none");
+		$(".player").css("margin", "0");
+	} else {
+		var playername = playerList[getOtherPlayer()];
+		$(".gamedesc").html("Engage in a game of flip cup against {otherplayer}");
+		var desctext = $(".gamedesc").html().replace("{otherplayer}", playername);
+		$(".gamedesc").html(desctext);
+	}
+	$(".nextturn").css("display", "inline-block");
+}
+
 var dark = false;
 
 function toggleDark(){
 	if (dark == false){
 		document.body.style.backgroundColor = "#363636";
-		document.getElementById("textdisplay").style.backgroundColor = "#5c5c5c";
-		document.getElementById("player").style.color = "#ffffff";
+		$(".textdisplay").css("background-color", "#5c5c5c");
+		$(".player").css("color", "#ffffff");
 		document.getElementById("darkmode").style.backgroundColor = "#33c9ff";
 		dark = true;
 	} else {
 		document.body.style.backgroundColor = "#f5f5f5";
-		document.getElementById("textdisplay").style.backgroundColor = "#ebebeb";
-		document.getElementById("player").style.color = "#5c5c5c";
+		$(".textdisplay").css("background-color", "#ebebeb");
+		$(".player").css("color", "#5c5c5c");
 		document.getElementById("darkmode").style.backgroundColor = "inherit";
 		dark = false;
 	}
