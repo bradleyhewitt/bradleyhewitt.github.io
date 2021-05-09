@@ -172,7 +172,7 @@ body {
 	display: none;
 }
 
-#title {
+.title {
 	font-size: 75px;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: bold;
@@ -488,6 +488,10 @@ input:-webkit-autofill:active
 }
 
 #darkmode {
+	background-color: #ebebeb;
+}
+
+#enableflipcup {
 	background-color: #ebebeb;
 }
 

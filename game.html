@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>CATEGORIES*</title>
+		<title>DRINKING GAMES</title>
 		<meta charset="utf-8">
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
@@ -15,6 +15,10 @@
 				<div class = "textdisplay">
 					<p id = "howtoplay">How to Play</p>
 					<p id = "description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque faucibus enim in diam vulputate, ac eleifend mi euismod.</p>
+					<div class = "labelwrapper id = "gameselector">
+						<label for="enableflipcup">Enable Flip Cup</label>
+						<span class="checkbox" id="enableflipcup" onclick="enableFlipCup();"></span>
+					</div>
 					<div class = "labelwrapper" id = "timerwrapper">
 						<label for="timerlength">Categories Timer</label>
 						<input type="range" class="slider" id="timerlength" min="1" max="15" value="10" oninput="this.nextElementSibling.value = this.value + 's'">
@@ -40,7 +44,7 @@
 				</div>
 			</div>
 			<div id = "categorieswrapper">
-				<p id = "title">CATEGORIES</p>
+				<p class = "title">CATEGORIES</p>
 				<div class = "textdisplay">
 					<p class = "player">&#8203;</p>
 					<p id = "category"><span class = "text-wrapper"><span id="letters"></span></span></p>
@@ -64,7 +68,7 @@
 				</div>
 			</div>
 			<div id = "flipcupwrapper">
-				<p id = "title">FLIP CUP</p>
+				<p class = "title">FLIP CUP</p>
 				<div class = "textdisplay">
 					<p class = "player">&#8203;</p>
 					<p class = "gamedesc">Engage in a game of flip cup against {otherplayer}</p>
