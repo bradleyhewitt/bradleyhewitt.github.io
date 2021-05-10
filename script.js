@@ -16,7 +16,7 @@ function makePortrait(){
 	$(".textdisplay").css("width", "80vw");
 	$(".textdisplay").css("font-size", "75px");
 	$(".textdisplay").css("border-radius", "80px");
-	$(".title").css("font-size", "100px");
+	$(".title").css("font-size", "75px");
 	$(".player").css("font-size", "60px");
 	$("#alphabet").css("font-size", "125px");
 	$("#playagain").css("font-size", "30px");
@@ -40,13 +40,13 @@ function makePortrait(){
 	$("#timerbarprogress").css("border-radius", "30px");
 	$("#count").css("font-size", "40px");
 	$("#type").css("font-size", "80%");
-	$("#description").css("font-size", "80%");
+	$("#description").css("font-size", "70%");
 	$(".labelwrapper").css("font-size", "60%");
 	$(".slider").css("height", "40px");
 	$('input[type=range]').addClass('mobileslider');
 	$(".checkbox").css({"height": "40px", "width": "40px"});
 	$(".textbox").css({"height": "40px", "width": "50%"});
-	$("#addplayer").css({"height": "40px", "min-width": "50%", "font-size": "14px"});
+	$("#addplayer").css({"height": "40px", "min-width": "30%", "font-size": "18px"});
 	return;
 }
 
@@ -66,6 +66,7 @@ function makeTallDevice(){
 	$("#type").css("font-size", "80%");
 	$(".checkbox").css({"height": "25px", "width": "25px"});
 	$(".textbox").css({"height": "25px", "width": "50%"});
+	$("#addplayer").css({"height": "40px", "min-width": "30%", "font-size": "18px"});
 	return;
 }
 
