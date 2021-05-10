@@ -46,7 +46,7 @@ function makePortrait(){
 	$('input[type=range]').addClass('mobileslider');
 	$(".checkbox").css({"height": "40px", "width": "40px"});
 	$(".textbox").css({"height": "40px", "width": "50%"});
-	$("#addplayer").css({"height": "40px", "min-width": "30%", "font-size": "18px"});
+	$("#addplayer").css({"min-height": "45px", "min-width": "25%", "font-size": "20px"});
 	return;
 }
 
