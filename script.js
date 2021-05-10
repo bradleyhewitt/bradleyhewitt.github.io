@@ -176,7 +176,7 @@ function getOtherPlayer(){
 	return randomPlayer;
 }
 
-let minigames = ['categories']
+let minigames = new Array();
 var current = "NULL";
 
 function decideTurn(){
@@ -194,7 +194,11 @@ function decideTurn(){
 
 function tryToStart(){
 	createPlayerList();
-	startGame();
+	if (buildMinigamesList() == 0){
+		startGame();
+	} else {
+		$("#cantstart").css("display", "flex");
+	}
 }
 
 function startGame(){
@@ -311,6 +315,8 @@ function newFlipCupTurn() {
 }
 
 var dark = false;
+var categories = true;
+var flipcup = true;
 
 function toggleDark(){
 	if (dark == false){
@@ -336,4 +342,38 @@ function enableFlipCup(){
 		minigames.push('flipcup');
 		document.getElementById("enableflipcup").style.backgroundColor = "#33c9ff";	
 	}
+}
+
+function toggleGame(game){
+	var tf;
+	if (window[game]){
+		$("#enable" + game).removeClass("checked");
+		window[game] = false;
+		tf = false;
+	} else {
+		$("#enable" + game).addClass("checked");
+		window[game] = true;
+		tf = true;
+	}
+	if (game == "categories"){
+		if (tf){
+			$("#timerwrapper").css("display", "flex");
+		} else {
+			$("#timerwrapper").css("display", "none");
+		}
+	}
+}
+
+function buildMinigamesList(){
+	minigames = [];
+	if (categories){
+		minigames.push("categories");
+	}
+	if (flipcup){
+		minigames.push("flipcup");
+	}
+	if (!categories && !flipcup){
+		return 1;
+	}
+	return 0;
 }

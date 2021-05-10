@@ -15,14 +15,18 @@
 				<div class = "textdisplay">
 					<p id = "howtoplay">How to Play</p>
 					<p id = "description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque faucibus enim in diam vulputate, ac eleifend mi euismod.</p>
-					<div class = "labelwrapper id = "gameselector">
-						<label for="enableflipcup">Enable Flip Cup</label>
-						<span class="checkbox" id="enableflipcup" onclick="enableFlipCup();"></span>
-					</div>
-					<div class = "labelwrapper" id = "timerwrapper">
-						<label for="timerlength">Categories Timer</label>
-						<input type="range" class="slider" id="timerlength" min="1" max="15" value="10" oninput="this.nextElementSibling.value = this.value + 's'">
-						<output>10s</output>
+					<div class = "labelwrapper" id = "gameselector">
+						<label for="enablecategories">Categories</label>
+						<span class="checkbox checked" id="enablecategories" onclick="toggleGame('categories');"></span>
+						<div class = "break"></div>
+						<div class = "labelwrapper sublabel" id = "timerwrapper">
+							<label for="timerlength">Timer</label>
+							<input type="range" class="slider" id="timerlength" min="1" max="15" value="10" oninput="this.nextElementSibling.value = this.value + 's'">
+							<output>10s</output>
+						</div>
+						<div class = "break"></div>
+						<label for="enableflipcup">Flip Cup</label>
+						<span class="checkbox checked" id="enableflipcup" onclick="toggleGame('flipcup');"></span>
 					</div>
 					<div class = "labelwrapper" id = "playerlabelwrapper">
 						<label>Players</label>
