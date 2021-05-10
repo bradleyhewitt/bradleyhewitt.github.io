@@ -45,6 +45,8 @@ function makePortrait(){
 	$(".slider").css("height", "40px");
 	$('input[type=range]').addClass('mobileslider');
 	$(".checkbox").css({"height": "40px", "width": "40px"});
+	$(".textbox").css({"height": "40px", "width": "50%"});
+	$("#addplayer").css({"height": "40px", "min-width": "50%", "font-size": "14px"});
 	return;
 }
 
@@ -62,6 +64,8 @@ function makeTallDevice(){
 	$("#incorrect").css("min-width", "35vw");
 	$("#incorrect").css("border-radius", "10px");
 	$("#type").css("font-size", "80%");
+	$(".checkbox").css({"height": "25px", "width": "25px"});
+	$(".textbox").css({"height": "25px", "width": "50%"});
 	return;
 }
 
@@ -245,6 +249,7 @@ function newTurn(){
 }
 
 function newCategoriesTurn() {
+	$(".title").text("CATEGORIES");
 	if (playerList.length == 0){
 		$(".player").css("display", "none");
 		$(".player").css("height", "0");
@@ -300,6 +305,7 @@ function newCategoriesTurn() {
 }
 
 function newFlipCupTurn() {
+	$(".title").text("FLIP CUP");
 	if (playerList.length == 0){
 		$(".player").css("display", "none");
 		$(".player").css("margin", "0");
@@ -331,16 +337,6 @@ function toggleDark(){
 		$(".player").css("color", "#5c5c5c");
 		document.getElementById("darkmode").style.backgroundColor = "inherit";
 		dark = false;
-	}
-}
-
-function enableFlipCup(){
-	if (minigames.includes('flipcup')){
-		minigames.splice(1, 1);
-		document.getElementById("enableflipcup").style.backgroundColor = "inherit";
-	} else {
-		minigames.push('flipcup');
-		document.getElementById("enableflipcup").style.backgroundColor = "#33c9ff";	
 	}
 }
 
