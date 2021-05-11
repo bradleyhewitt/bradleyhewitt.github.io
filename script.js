@@ -95,9 +95,9 @@ function incorrect(){
 	$("#incorrect").css("border-color", "#9c3535");
 	hideButtons();
 	var random_punishment = punishments[Math.floor(Math.random() * punishments.length)];
-	document.getElementById("type").style.display = "inline-block";
-	document.getElementById("type").style.color = "#ff5c5c";
-	document.getElementById("type").innerHTML=random_punishment;
+	$("#type").css("display", "inline-block");
+	$("#type").css("color", "#ff5c5c");
+	$("#type").html(random_punishment);
 	$(".nextturn").css("display", "inline-block");
 	incorrect_audio.load();
 	incorrect_audio.play();
@@ -117,6 +117,7 @@ function updateCounter(){
 function stopCounter(){
 	$("#timerbarprogress").css("width", "0");
 	$("#timerbar").css("display", "none");
+	$("#buttonspace").css("display", "none");
 	clearInterval(timer);
 }
 
@@ -128,7 +129,6 @@ function showButtons(){
 function hideButtons(){
 	$("#correct").css("display", "none");
 	$("#incorrect").css("display", "none");
-	$("#buttonspace").css("margin-bottom", "0px");
 }
 
 var players = 1;
@@ -171,7 +171,7 @@ function getRandomPlayer(){
 }
 
 function getOtherPlayer(){
-	if (playerList.length == 0){
+	if (playerList.length <= 1){
 		return -1;
 	}
 	var randomPlayer = getRandomPlayer();
@@ -191,6 +191,8 @@ function decideTurn(){
 		newCategoriesTurn();
 	} else if (current == "flipcup"){
 		newFlipCupTurn();
+	} else if (current == "clickrace"){
+		newClickRaceTurn();
 	}
 	$(document).ready(function(){
 		document.getElementById(current + "wrapper").style.display = "block";
@@ -256,6 +258,7 @@ function newCategoriesTurn() {
 		$(".player").css("height", "0");
 	}
 	var timerlength = document.getElementById("timerlength").value;
+	$("#buttonspace").css("display", "flex");
 	document.getElementById("timerbarprogress").style.animation = "none";
 	document.getElementById("timerbarprogress").offsetHeight;
 	document.getElementById("timerbarprogress").style.animation = "updateTimer " + timerlength + "s linear 0s 1 forwards";
@@ -269,7 +272,6 @@ function newCategoriesTurn() {
 	document.getElementById("correct").style.borderColor = "#49c973";
 	document.getElementById("incorrect").style.backgroundColor = "#ff5c5c"
 	document.getElementById("incorrect").style.borderColor = "#ff5c5c";
-	document.getElementById("buttonspace").style.marginBottom = "30px";
 	document.getElementById("type").style.display = "none";
 	var random_reward = rewards[Math.floor(Math.random() * rewards.length)];
 	document.getElementById("type").innerHTML=random_reward;
@@ -307,38 +309,48 @@ function newCategoriesTurn() {
 
 function newFlipCupTurn() {
 	$(".title").text("FLIP CUP");
-	if (playerList.length == 0){
+	if (playerList.length <= 1){
 		$(".player").css("display", "none");
 		$(".player").css("margin", "0");
-		var desctext = $(".gamedesc").html().replace("{otherplayer}", "another player");
-		$(".gamedesc").html(desctext);
 	} else {
-		var playername = playerList[getOtherPlayer()];
-		$(".gamedesc").html("Engage in a game of flip cup against {otherplayer}");
-		var desctext = $(".gamedesc").html().replace("{otherplayer}", playername);
-		$(".gamedesc").html(desctext);
+		$(".otherplayer").html(playerList[getOtherPlayer()]);
 	}
 	$(".nextturn").css("display", "inline-block");
 }
 
-var dark = false;
+function newClickRaceTurn(){
+	$(".title").text("CLICK RACE");
+}
+
+var dark = true;
 var categories = true;
 var flipcup = true;
+var clickrace = true;
 
-function toggleDark(){
-	if (dark == false){
-		document.body.style.backgroundColor = "#363636";
-		$(".textdisplay").css("background-color", "#5c5c5c");
-		$(".player").css("color", "#ffffff");
-		document.getElementById("darkmode").style.backgroundColor = "#33c9ff";
-		dark = true;
+$(document).ready(function(){
+	if (dark){
+		makeDark();
 	} else {
-		document.body.style.backgroundColor = "#f5f5f5";
-		$(".textdisplay").css("background-color", "#ebebeb");
-		$(".player").css("color", "#5c5c5c");
-		document.getElementById("darkmode").style.backgroundColor = "inherit";
-		dark = false;
+		makeLight();
 	}
+});
+
+function makeDark(){
+	$("body,html").css("background-color", "#363636");
+	$(".textdisplay").css("background-color", "#5c5c5c");
+	$(".player").css("color", "#ffffff");
+	$(".otherplayer").css("color", "#ffffff");
+	$("#cantstart").css("color", "#ffffff");
+	return;
+}
+
+function makeLight(){
+	$("body,html").css("background-color", "#f5f5f5");
+	$(".textdisplay").css("background-color", "#ebebeb");
+	$(".player").css("color", "#5c5c5c");
+	$(".otherplayer").css("color", "#5c5c5c");
+	$("#cantstart").css("color", "#9c3535");
+	return;
 }
 
 function toggleGame(game){
@@ -359,6 +371,13 @@ function toggleGame(game){
 			$("#timerwrapper").css("display", "none");
 		}
 	}
+	if (game == "dark"){
+		if (tf){
+			makeDark();
+		} else {
+			makeLight();
+		}
+	}
 }
 
 function buildMinigamesList(){
@@ -367,9 +386,20 @@ function buildMinigamesList(){
 		minigames.push("categories");
 	}
 	if (flipcup){
-		minigames.push("flipcup");
+		if (playerList.length >= 2){
+			minigames.push("flipcup");
+		} else {
+			toggleGame("flipcup");
+		}
 	}
-	if (!categories && !flipcup){
+	if (clickrace){
+		if (playerList.length >= 2){
+			minigames.push("clickrace");
+		} else {
+			toggleGame("clickrace");
+		}
+	}
+	if (!categories && !flipcup && !clickrace){
 		return 1;
 	}
 	return 0;
