@@ -34,11 +34,11 @@ function makePortrait(){
 	$(".nextturn").css("font-size", "60px");
 	$(".nextturn").css("min-width", "40vw");
 	$(".nextturn").css("border-radius", "20px");
-	$("#timerbar").css("height", "80px");
-	$("#timerbar").css("width", "70vw");
-	$("#timerbar").css("border-radius", "30px");
-	$("#timerbarprogress").css("border-radius", "30px");
-	$("#count").css("font-size", "40px");
+	$(".timerbar").css("height", "80px");
+	$(".timerbar").css("width", "70vw");
+	$(".timerbar").css("border-radius", "30px");
+	$(".timerbarprogress").css("border-radius", "30px");
+	$(".count").css("font-size", "40px");
 	$("#type").css("font-size", "80%");
 	$("#description").css("font-size", "70%");
 	$(".labelwrapper").css("font-size", "60%");
@@ -56,7 +56,7 @@ function makeTallDevice(){
 	$(".textdisplay").css("min-height", "40vh");
 	$(".textdisplay").css("font-size", "40px");
 	$(".title").css("font-size", "50px");
-	$("#timerbar").css("width", "70vw");
+	$(".timerbar").css("width", "70vw");
 	$("#correct").css("font-size", "20px");
 	$("#correct").css("min-width", "35vw");
 	$("#correct").css("border-radius", "10px");
@@ -76,7 +76,7 @@ var incorrect_audio = new Audio('incorrect.mp3');
 incorrect_audio.loop = false;
 
 function correct(){
-	stopCounter();
+	stopCounter("categories", categoriestimer);
 	$("#correct").css("background-color", "#49c973");
 	$("#correct").css("border-color", "#339654");
 	hideButtons();
@@ -90,7 +90,7 @@ function correct(){
 }
 
 function incorrect(){
-	stopCounter();
+	stopCounter("categories", categoriestimer);
 	$("#incorrect").css("background-color", "#ff5c5c");
 	$("#incorrect").css("border-color", "#9c3535");
 	hideButtons();
@@ -103,21 +103,21 @@ function incorrect(){
 	incorrect_audio.play();
 }
 
-var timer;
+var categoriestimer;
+var clicktimer;
 
-function updateCounter(){
-	var time = $("#count").html();
+function updateCounter(game){
+	var time = $("#" + game + "count").html();
 	if (time == 1){
-		stopCounter();
+		stopCounter(game, window[game + "timer"]);
 		return;
 	}
-	$("#count").html(time - 1);
+	$("#" + game + "count").html(time - 1);
 }
 
-function stopCounter(){
-	$("#timerbarprogress").css("width", "0");
-	$("#timerbar").css("display", "none");
-	$("#buttonspace").css("display", "none");
+function stopCounter(game, timer){
+	$("#" + game + "progress").css("width", "0");
+	$("#" + game + "timer").css("display", "none");
 	clearInterval(timer);
 }
 
@@ -258,16 +258,14 @@ function newCategoriesTurn() {
 		$(".player").css("height", "0");
 	}
 	var timerlength = document.getElementById("timerlength").value;
-	$("#buttonspace").css("display", "flex");
-	document.getElementById("timerbarprogress").style.animation = "none";
-	document.getElementById("timerbarprogress").offsetHeight;
-	document.getElementById("timerbarprogress").style.animation = "updateTimer " + timerlength + "s linear 0s 1 forwards";
-	document.getElementById("timerbarprogress").style.animationPlayState = "paused";
-	document.getElementById("count").innerHTML = timerlength;
+	$(".buttonspace").css("visibility", "hidden");
+	document.getElementById("categoriesprogress").style.animation = "none";
+	document.getElementById("categoriesprogress").offsetHeight;
+	document.getElementById("categoriesprogress").style.animation = "updateTimer " + timerlength + "s linear 0s 1 forwards";
+	document.getElementById("categoriesprogress").style.animationPlayState = "paused";
+	document.getElementById("categoriescount").innerHTML = timerlength;
 	$(".nextturn").css("display", "none");
 	document.getElementById("alphabet").style.visibility = "hidden";
-	document.getElementById("timerbar").style.display = "flex";
-    document.getElementById("timerbar").style.visibility = "hidden";
 	document.getElementById("correct").style.backgroundColor = "#49c973";
 	document.getElementById("correct").style.borderColor = "#49c973";
 	document.getElementById("incorrect").style.backgroundColor = "#ff5c5c"
@@ -300,14 +298,17 @@ function newCategoriesTurn() {
         document.getElementById("alphabet").style.visibility = "visible";
     }, 2000);
     setTimeout(function() {
-        document.getElementById("timerbar").style.visibility = "visible";
+		$(".buttonspace").css("visibility", "visible");
+		$("#categoriestimer").css("display", "flex");
 		showButtons();
-		document.getElementById("timerbarprogress").style.animationPlayState = "running";
-		timer = setInterval(updateCounter, 1000);
+		document.getElementById("categoriesprogress").style.animationPlayState = "running";
+		categoriestimer = setInterval(function() {
+			updateCounter("categories");
+		}, 1000);
     }, 2000);
 }
 
-function newFlipCupTurn() {
+function newFlipCupTurn(){
 	$(".title").text("FLIP CUP");
 	if (playerList.length <= 1){
 		$(".player").css("display", "none");
@@ -319,7 +320,14 @@ function newFlipCupTurn() {
 }
 
 function newClickRaceTurn(){
+	$(".buttonspace").css("display", "none");
+	var otherplayer = playerList[getOtherPlayer()];
 	$(".title").text("CLICK RACE");
+	$("#clickbutton").text("Beat " + otherplayer);
+}
+
+function registerClick(){
+	$(".buttonspace").css("display", "flex");
 }
 
 var dark = true;

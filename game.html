@@ -24,8 +24,9 @@
 							<label for="timerlength">Timer</label>
 							<input type="range" class="slider" id="timerlength" min="1" max="15" value="10" oninput="this.nextElementSibling.value = this.value + 's'">
 							<output>10s</output>
+							<div class = "break"></div>
+							<div class = "break"></div>
 						</div>
-						<div class = "break"></div>
 						<label for="enableflipcup">Flip Cup</label>
 						<span class="checkbox checked" id="enableflipcup" onclick="toggleGame('flipcup');"></span>
 						<div class = "break"></div>
@@ -45,7 +46,7 @@
 						<label for="enabledark">Dark Mode</label>
 						<span class="checkbox checked" id="enabledark" onclick="toggleGame('dark');"></span>
 					</div>
-					<div id = "beginwrapper">
+					<div class = "buttonwrapper verticalwrapper">
 						<button id = "begin" onclick="tryToStart();">Start Game</button>
 						<p id = "cantstart">Could not start game</p>
 					</div>
@@ -57,11 +58,11 @@
 					<p id = "category"><span class = "text-wrapper"><span id="letters"></span></span></p>
 					<p id = "alphabet">&#8203;</p>
 					</form>
-					<div id = "buttonspace">
-						<div id = "timerbar">
-							<div id = "timerbarprogress"></div>
-							<div id = "countbox">
-								<p id = "count">&#8203;</p>
+					<div class = "buttonspace">
+						<div class = "timerbar" id = "categoriestimer">
+							<div class = "timerbarprogress" id = "categoriesprogress"></div>
+							<div class = "countbox" id = "categoriescountbox">
+								<p class = "count" id = "categoriescount">&#8203;</p>
 							</div>
 						</div>
 						<span class = "buttonwrapper">
@@ -69,9 +70,9 @@
 						</span>
 					</div>
 					<p id = "type">&#8203;</p>
-					<span class = "buttonwrapper">
+					<div class = "buttonwrapper">
 						<button class = "nextturn" onclick="newTurn();">Next Turn</button>
-					</span>
+					</div>
 				</div>
 			</div>
 			<div id = "flipcupwrapper">
@@ -79,19 +80,29 @@
 					<p class = "player">&#8203;</p>
 					<div class = "gamedesc">Engage in a game of flip cup against <p class = "otherplayer">another player</p></div>
 					<img class = "gameimage noselect" src="flipcup.gif">
- 					<span class = "buttonwrapper">
+ 					<div class = "buttonwrapper">
 						<button class = "nextturn" onclick="newTurn();">Next Turn</button>
-					</span>
+					</div>
 				</div>
 			</div>
 			<div id = "clickracewrapper">
 				<div class = "textdisplay">
 					<p class = "player">&#8203;</p>
 					<div class = "gamedesc">Click as many times as you can</div>
-					<button class = "greenbutton "id = "clickbutton" onclick="registerClick();">Click Here</button>
- 					<span class = "buttonwrapper">
+					<div class = "buttonwrapper" id = "racebuttonwrapper">
+						<button class = "greenbutton" id = "racebutton" onclick="registerClick();">Click Here</button>
+					</div>
+					<div class = "buttonspace">
+						<div id = "racebar">
+							<div id = "racebarprogress"></div>
+							<div id = "racecountbox">
+								<p id = "racecount">&#8203;</p>
+							</div>
+						</div>
+					</div>
+ 					<div class = "buttonwrapper">
 						<button class = "nextturn" onclick="newTurn();">Next Turn</button>
-					</span>
+					</div>
 				</div>
 			</div>
 			<p id = "playagain"><a onclick="location.reload();" style = "text-decoration: none; color: #ababab">Restart Game <img id = "retryimg" src = "retry.png"></a></p>
