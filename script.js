@@ -45,8 +45,9 @@ function makePortrait(){
 	$(".slider").css("height", "40px");
 	$('input[type=range]').addClass('mobileslider');
 	$(".checkbox").css({"height": "40px", "width": "40px"});
-	$(".textbox").css({"height": "40px", "width": "50%"});
+	$(".textbox").css({"height": "40px", "width": "45%", "font-size": "20px", "border-radius": "15px"});
 	$("#addplayer").css({"min-height": "45px", "min-width": "25%", "font-size": "20px"});
+	$("#racebutton").css({"width": "60vw", "height": "400px"});
 	return;
 }
 
@@ -67,6 +68,7 @@ function makeTallDevice(){
 	$(".checkbox").css({"height": "25px", "width": "25px"});
 	$(".textbox").css({"height": "25px", "width": "50%"});
 	$("#addplayer").css({"height": "40px", "min-width": "30%", "font-size": "18px"});
+	$("#racebutton").css({"width": "60vw", "height": "400px"});
 	return;
 }
 
@@ -323,7 +325,7 @@ function newClickRaceTurn(){
 	$(".buttonspace").css("display", "none");
 	var otherplayer = playerList[getOtherPlayer()];
 	$(".title").text("CLICK RACE");
-	$("#clickbutton").text("Beat " + otherplayer);
+	$("#racebutton").text("Beat " + otherplayer);
 }
 
 function registerClick(){
