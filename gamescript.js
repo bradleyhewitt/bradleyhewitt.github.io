@@ -23,7 +23,7 @@ function makePortrait(){
 	$("#retryimg").css("height", "30px");
 	$("#retryimg").css("width", "30px");
 	$(".greenbutton").css("min-width", "35vw");
-	$(".greenbutton").css("border-radius", "20px");
+	$(".greenbutton").css("border-radius", "30px");
 	$(".greenbutton").css("font-size", "60px");
 	$(".timerbar").css("height", "80px");
 	$(".timerbar").css("width", "70vw");
