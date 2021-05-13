@@ -41,14 +41,14 @@
 						<input type="text" id="player1" class="textbox" required>
 					</div>
 					<div class = "labelwrapper" id = "addplayerwrapper">
-						<button id = "addplayer" onclick="addPlayer();">Add Player</button>
+						<button class = "greenbutton" id = "addplayer" onclick="addPlayer();">Add Player</button>
 					</div>
 					<div class = "labelwrapper">
 						<label for="enabledark">Dark Mode</label>
 						<span class="checkbox checked" id="enabledark" onclick="toggleGame('dark');"></span>
 					</div>
 					<div class = "buttonwrapper verticalwrapper">
-						<button id = "begin" onclick="tryToStart();">Start Game</button>
+						<button class = "greenbutton" id = "begin" onclick="tryToStart();">Start Game</button>
 						<p id = "cantstart">Could not start game</p>
 					</div>
 				</div>
@@ -67,12 +67,12 @@
 							</div>
 						</div>
 						<span class = "buttonwrapper">
-							<button id = "correct" onclick="correct();">Correct</button><button id = "incorrect" onclick="incorrect();">Incorrect</button>
+							<button class = "greenbutton" id = "correct" onclick="correct();">Correct</button><button class = "greenbutton"  id = "incorrect" onclick="incorrect();">Incorrect</button>
 						</span>
 					</div>
 					<p id = "type">&#8203;</p>
 					<div class = "buttonwrapper">
-						<button class = "nextturn" onclick="newTurn();">Next Turn</button>
+						<button class = "greenbutton nextturn" onclick="newTurn();">Next Turn</button>
 					</div>
 				</div>
 			</div>
@@ -82,7 +82,7 @@
 					<div class = "gamedesc">Engage in a game of flip cup against <p class = "otherplayer">another player</p></div>
 					<img class = "gameimage noselect" src="assets/flipcup.gif">
  					<div class = "buttonwrapper">
-						<button class = "nextturn" onclick="newTurn();">Next Turn</button>
+						<button class = "greenbutton nextturn" onclick="newTurn();">Next Turn</button>
 					</div>
 				</div>
 			</div>
@@ -94,15 +94,18 @@
 						<button class = "greenbutton" id = "racebutton" onclick="registerClick();">Click Here</button>
 					</div>
 					<div class = "buttonspace">
-						<div id = "racebar">
-							<div id = "racebarprogress"></div>
-							<div id = "racecountbox">
-								<p id = "racecount">&#8203;</p>
+						<div class = "timerbar" id = "racetimer">
+							<div class = "timerbarprogress" id = "raceprogress"></div>
+							<div class = "countbox" id = "racecountbox">
+								<p class = "count" id = "racecount">10</p>
 							</div>
 						</div>
 					</div>
  					<div class = "buttonwrapper">
-						<button class = "nextturn" onclick="newTurn();">Next Turn</button>
+						<button class = "greenbutton" id = "nextraceplayer" onclick="nextRacePlayer();">Next Player</button>
+					</div>
+ 					<div class = "buttonwrapper">
+						<button class = "greenbutton nextturn" onclick="newTurn();">Next Turn</button>
 					</div>
 				</div>
 			</div>
