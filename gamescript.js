@@ -107,7 +107,11 @@ function stopCounter(game, timer){
 	$("#" + game + "timer").css("display", "none");
 	if (game == "race"){
 		racetimeractive = false;
-		$("#nextraceplayer").css("display", "inline-block");
+		if (turn == 0){
+			$("#nextraceplayer").css("display", "inline-block");
+		} else {
+			showRaceResults();
+		}
 	}
 	clearInterval(timer);
 }
@@ -239,6 +243,7 @@ function newTurn(){
 		} else { 
 			currentPlayer = nextPlayer();
 		}
+		$(".player").css("display", "inline-block");
 		$(".player").html(playerList[currentPlayer]);
 	}
 	decideTurn();
@@ -305,18 +310,26 @@ function newFlipCupTurn(){
 	$(".otherplayer").html(playerList[getOtherPlayer()]);
 }
 
-var clicks;
+var clicks = 0;
+var p1clicks = 0;
+var turn = 0;
 var racetimeractive = false;
+var otherraceplayer;
 
 function newClickRaceTurn(){
 	$(".title").text("CLICK RACE");
+	$(".gamedesc").text("Click... quick");
 	$(".nextturn").css("display", "none");
 	$(".buttonspace").css("visibility", "visible");
 	$("#racetimer").css("display", "flex");
+	$("#racecount").text("10");
 	$("#nextraceplayer").css("display", "none");
+	$("#resultspace").css("display", "none");
+	$("#racebuttonwrapper").css("display", "flex");
 	clicks = 0;
-	var otherplayer = playerList[getOtherPlayer()];
-	$("#racebutton").text("Beat " + otherplayer);
+	turn = 0;
+	otherraceplayer = playerList[getOtherPlayer()];
+	$("#racebutton").text("Beat " + otherraceplayer);
 }
 
 function registerClick(){
@@ -334,6 +347,49 @@ function registerClick(){
 		clicks += 1;
 		$("#racebutton").text(clicks);
 	}
+}
+
+function nextRacePlayer(){
+	turn = 1;
+	p1clicks = clicks;
+	$("#nextraceplayer").css("display", "none");
+	$(".player").text(otherraceplayer);
+	$("#racebutton").text("Beat " + playerList[currentPlayer]);
+	$("#racetimer").css("display", "flex");
+	$("#racecount").text("10");
+	clicks = 0;
+}
+
+function showRaceResults(){
+	$(".player").css("display", "none");
+	$(".gamedesc").text("Results");
+	$("#racebuttonwrapper").css("display", "none");
+	$("#resultspace").css("display", "flex");
+	$("#p1name").css("display", "inline-block");
+	$("#p2name").css("display", "inline-block");
+	$("#p1name").text(playerList[currentPlayer]);
+	$("#p2name").text(otherraceplayer);
+	$("#p1score").text(p1clicks);
+	$("#p2score").text(clicks);
+	var random_reward = rewards[Math.floor(Math.random() * rewards.length)];
+	var random_punishment = punishments[Math.floor(Math.random() * punishments.length)];
+	if (p1clicks > clicks){
+		$("#p1outcome").text(random_reward);
+		$("#p2outcome").text(random_punishment);
+		$("#p1outcome").css("color", "#49c973");
+		$("#p2outcome").css("color", "#ff5c5c");
+	} else if (clicks > p1clicks){
+		$("#p2outcome").text(random_reward);
+		$("#p1outcome").text(random_punishment);
+		$("#p2outcome").css("color", "#49c973");
+		$("#p1outcome").css("color", "#ff5c5c");
+	} else {
+		$("#p1outcome").text("Drink with " + otherraceplayer);
+		$("#p2outcome").text("Drink with " + playerList[currentPlayer]);
+		$("#p1outcome").css("color", "#ff5c5c");
+		$("#p2outcome").css("color", "#ff5c5c");
+	}
+	$(".nextturn").css("display", "inline-block");
 }
 
 var dark = true;

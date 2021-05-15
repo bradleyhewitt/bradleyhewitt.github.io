@@ -250,6 +250,35 @@ body {
 	width: 15px;
 }
 
+#resultspace {
+	width: 100%;
+	display: flex;
+	flex-flow: row nowrap;
+	text-align: center;
+	justify-content: center;
+	align-items: flex-start;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	margin-bottom: 30px;
+}
+
+.playerresult {
+	display: flex;
+	width: 50%;
+	padding-left: 10px;
+	padding-right: 10px;
+	flex-flow: column nowrap;
+	text-align: center;
+	justify-content: center;
+	align-content: center;
+	margin: 0;
+}
+
+.playerresult > p {
+	margin: 0;
+}
+
 .buttonspace {
 	display: flex;
 	flex-flow: column nowrap;
