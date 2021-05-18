@@ -18,6 +18,7 @@ function makePortrait(){
 	$(".textdisplay").css("font-size", "50px");
 	$(".textdisplay").css("border-radius", "80px");
 	$(".textdisplay").css("border-radius", "80px");
+	$(".textdisplay").addClass('mobiledisplay');
 	$("#howtoplay").css("font-size", "60px");
 	$(".title").css("font-size", "75px");
 	$(".player").css("font-size", "60px");

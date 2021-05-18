@@ -173,6 +173,10 @@ body {
 	display: none;
 }
 
+.mobiledisplay {
+	overflow-y: scroll;
+}
+
 #pregramewrapper {
 	margin: 0;
 }
