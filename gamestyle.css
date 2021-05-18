@@ -4,6 +4,7 @@ body {
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;
+	align-items: center;
 	align-content: center;
 	text-align: center;
 	max-width: 100vw;
@@ -152,8 +153,6 @@ body {
 	min-height: -moz-min-content;
 	min-height: -webkit-min-content;
 	min-height: min-content;
-	max-height: -webkit-fill-available;
-	max-height: -moz-available;
 	max-height: 75vh;
 	max-width: 60vw;
 	overflow-x: hidden;
@@ -172,16 +171,24 @@ body {
 	display: none;
 }
 
+#pregramewrapper {
+	margin: 0;
+}
+
+
 #categorieswrapper {
 	display: none;
+	margin: 0;
 }
 
 #flipcupwrapper {
 	display: none;
+	margin: 0;
 }
 
 #clickracewrapper {
 	display: none;
+	margin: 0;
 }
 
 .title {
