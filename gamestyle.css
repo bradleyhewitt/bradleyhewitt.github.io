@@ -159,6 +159,7 @@ body {
 	max-width: 60vw;
 	overflow-x: hidden;
 	overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 	word-break: normal;
 	padding: 30px;
 }
