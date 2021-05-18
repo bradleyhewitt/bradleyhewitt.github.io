@@ -11,6 +11,8 @@ function makeLandscape(){
 }
 
 function makePortrait(){
+	var maxHeight = window.innerHeight * 0.75;
+	$("body").css("max-height", maxHeight.toString());
 	$(".textdisplay").css("max-width", "80vw");
 	$(".textdisplay").css("width", "80vw");
 	$(".textdisplay").css("font-size", "50px");

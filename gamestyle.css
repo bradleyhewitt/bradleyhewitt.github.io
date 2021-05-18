@@ -1,15 +1,6 @@
 body {
 	background-color: #f5f5f5;
-	vertical-align: center;
-}
-
-.content {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin: auto;
+	margin: 0;
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;
@@ -161,7 +152,9 @@ body {
 	min-height: -moz-min-content;
 	min-height: -webkit-min-content;
 	min-height: min-content;
-	max-height: 80vh;
+	max-height: -webkit-fill-available;
+	max-height: -moz-available;
+	max-height: 75vh;
 	max-width: 60vw;
 	overflow-x: hidden;
 	overflow-y: hidden;
