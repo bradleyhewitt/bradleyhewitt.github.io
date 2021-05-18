@@ -158,19 +158,25 @@ body {
 	max-height: 75vh;
 	max-width: 60vw;
 	overflow-x: hidden;
-	overflow-y: hidden;
+	overflow-y: scroll;
 	word-break: normal;
 	padding: 30px;
 }
 
-.textdisplay:hover {
+#placeholder {
 	overflow-y: scroll;
+	display: none;
 	-ms-overflow-style: none;
 	scrollbar-width: none;
 }
 
+.textdisplay:hover {
+	overflow-y: scroll;
+
+}
+
 .textdisplay::-webkit-scrollbar {
-	display: none;
+
 }
 
 .mobiledisplay {
