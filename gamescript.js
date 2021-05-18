@@ -1,7 +1,6 @@
 function makeLandscape(){
 	$(".textdisplay").css("max-width", "80vw");
 	$(".textdisplay").css("width", "80vw");
-	$(".textdisplay").css("min-height", "40vh");
 	$(".textdisplay").css("font-size", "25px");
 	$(".title").css("font-size", "50px");
 	$("#alphabet").css("font-size", "75px");
@@ -24,9 +23,7 @@ function makePortrait(){
 	$("#playagain").css("font-size", "30px");
 	$("#retryimg").css("height", "30px");
 	$("#retryimg").css("width", "30px");
-	$(".greenbutton").css("min-width", "30vw");
-	$(".greenbutton").css("border-radius", "35px");
-	$(".greenbutton").css("font-size", "40px");
+	$('button').addClass('mobilebutton');
 	$(".timerbar").css("height", "70px");
 	$(".timerbar").css("width", "70vw");
 	$(".timerbar").css("border-radius", "35px");
@@ -37,10 +34,10 @@ function makePortrait(){
 	$("#playerresultoutcome").css("line-height", "1");
 	$(".labelwrapper").css("font-size", "60%");
 	$(".slider").css("height", "30px");
-	$(".checkbox").css("border-radius", "15px");
+	$(".checkbox").css("border-radius", "18px");
 	$('input[type=range]').addClass('mobileslider');
 	$(".checkbox").css({"height": "40px", "width": "40px"});
-	$(".textbox").css({"height": "40px", "width": "45vw", "font-size": "24px", "border-radius": "15px", "padding-left": "10px"});
+	$(".textbox").css({"height": "35px", "width": "30vw", "font-size": "24px", "border-radius": "18px", "padding-left": "10px"});
 	$("#addplayer").css({"min-height": "45px", "min-width": "25%", "font-size": "20px"});
 	$("#racebutton").css({"width": "60vw", "height": "400px"});
 	$("#resultspace").css("flex-flow", "column nowrap");
@@ -51,7 +48,6 @@ function makePortrait(){
 function makeTallDevice(){
 	$(".textdisplay").css("max-width", "80vw");
 	$(".textdisplay").css("width", "80vw");
-	$(".textdisplay").css("min-height", "40vh");
 	$(".textdisplay").css("font-size", "40px");
 	$(".title").css("font-size", "50px");
 	$(".timerbar").css("width", "70vw");
@@ -213,7 +209,7 @@ function tryToStart(){
 
 function startGame(){
 	document.getElementById("pregamewrapper").style.display = "none";
-	document.getElementById("playagain").style.visibility = "visible";
+	$("#playagain").css("display", "inline-block");
 	newTurn();
 }
 
