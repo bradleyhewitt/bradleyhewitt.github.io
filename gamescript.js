@@ -16,6 +16,8 @@ function makePortrait(){
 	$(".textdisplay").css("width", "80vw");
 	$(".textdisplay").css("font-size", "75px");
 	$(".textdisplay").css("border-radius", "80px");
+	$(".textdisplay").css("border-radius", "80px");
+	$(".textdisplay").css("line-height", "0");
 	$(".title").css("font-size", "75px");
 	$(".player").css("font-size", "60px");
 	$("#alphabet").css("font-size", "125px");
@@ -39,6 +41,7 @@ function makePortrait(){
 	$(".textbox").css({"height": "40px", "width": "45%", "font-size": "24px", "border-radius": "15px", "padding-left": "10px"});
 	$("#addplayer").css({"min-height": "45px", "min-width": "25%", "font-size": "20px"});
 	$("#racebutton").css({"width": "60vw", "height": "400px"});
+	$("#resultspace").css("flex-flow", "column wrap");
 	return;
 }
 
