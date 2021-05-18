@@ -17,7 +17,6 @@ function makePortrait(){
 	$(".textdisplay").css("font-size", "75px");
 	$(".textdisplay").css("border-radius", "80px");
 	$(".textdisplay").css("border-radius", "80px");
-	$(".textdisplay").css("line-height", "0");
 	$(".title").css("font-size", "75px");
 	$(".player").css("font-size", "60px");
 	$("#alphabet").css("font-size", "125px");
@@ -33,6 +32,9 @@ function makePortrait(){
 	$(".timerbarprogress").css("border-radius", "30px");
 	$(".count").css("font-size", "40px");
 	$("#type").css("font-size", "80%");
+	$("#type").css("line-height", "1");
+	$("#playerresultoutcome").css("font-size", "80%");
+	$("#playerresultoutcome").css("line-height", "1");
 	$("#description").css("font-size", "70%");
 	$(".labelwrapper").css("font-size", "60%");
 	$(".slider").css("height", "40px");
