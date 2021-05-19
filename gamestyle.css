@@ -7,9 +7,9 @@ body {
 	margin: 0;
 	display: flex;
 	flex-flow: column nowrap;
-	justify-content: center;
 	align-items: center;
 	align-content: center;
+	justify-content: center;
 	text-align: center;
 	max-width: 100vw;
 	min-height: -moz-min-content;
@@ -186,7 +186,7 @@ body::-webkit-scrollbar {
 }
 
 #pregramewrapper {
-	margin: 0;
+	margin: 0 auto;
 }
 
 
@@ -211,7 +211,7 @@ body::-webkit-scrollbar {
 	font-weight: bold;
 	font-style: italic;
 	color: #33c9ff;
-	margin: 0;
+	margin: 0 auto;
 }
 
 #footnote {
