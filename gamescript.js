@@ -12,13 +12,19 @@ function makeLandscape(){
 
 function makePortrait(){
 	$("body").css("overflow-y", "scroll");
+	$("body::-webkit-scrollbar").css("scrollbar-width", "auto");
+	$("body::-webkit-scrollbar").css("display", "auto");
+	$("body::-webkit-scrollbar").css("-ms-overflow-style: none;", "auto");
 	var maxHeight = window.screen.height * 0.75;
 	$(".textdisplay").css("max-height", maxHeight.toString());
 	$(".textdisplay").css("max-width", "80vw");
 	$(".textdisplay").css("width", "80vw");
 	$(".textdisplay").css("font-size", "50px");
 	$(".textdisplay").css("border-radius", "80px");
-	$(".textdisplay").css("border-radius", "80px");
+	$(".textdisplay").css("overflow-y", "scroll");
+	$(".textdisplay::-webkit-scrollbar").css("scrollbar-width", "auto");
+	$(".textdisplay::-webkit-scrollbar").css("display", "auto");
+	$(".textdisplay::-webkit-scrollbar").css("-ms-overflow-style: none;", "auto");
 	$("#howtoplay").css("font-size", "60px");
 	$(".title").css("font-size", "75px");
 	$(".player").css("font-size", "60px");
