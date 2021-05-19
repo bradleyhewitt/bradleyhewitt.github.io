@@ -158,30 +158,20 @@ body {
 	max-height: 75vh;
 	max-width: 60vw;
 	overflow-x: hidden;
-	overflow-y: scroll;
+	overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
 	word-break: normal;
 	padding: 30px;
 }
 
-#placeholder {
-	overflow-y: scroll;
-	display: none;
-	-ms-overflow-style: none;
-	scrollbar-width: none;
-}
-
 .textdisplay:hover {
 	overflow-y: scroll;
-
 }
 
 .textdisplay::-webkit-scrollbar {
-
-}
-
-.mobiledisplay {
-	overflow-y: scroll;
+	display: none;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }
 
 #pregramewrapper {

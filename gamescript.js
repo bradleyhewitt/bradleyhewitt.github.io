@@ -11,6 +11,7 @@ function makeLandscape(){
 }
 
 function makePortrait(){
+	$("body").css("overflow-y", "scroll");
 	var maxHeight = window.screen.height * 0.75;
 	$(".textdisplay").css("max-height", maxHeight.toString());
 	$(".textdisplay").css("max-width", "80vw");
@@ -18,7 +19,6 @@ function makePortrait(){
 	$(".textdisplay").css("font-size", "50px");
 	$(".textdisplay").css("border-radius", "80px");
 	$(".textdisplay").css("border-radius", "80px");
-	$(".textdisplay").addClass('mobiledisplay');
 	$("#howtoplay").css("font-size", "60px");
 	$(".title").css("font-size", "75px");
 	$(".player").css("font-size", "60px");
