@@ -313,6 +313,7 @@ function newFlipCupTurn(){
 	$(".title").text("FLIP CUP");
 	$(".nextturn").css("display", "inline-block");
 	$(".otherplayer").html(playerList[getOtherPlayer()]);
+	$(".gamedesc").html("Engage in a game of flip cup against <p class = 'otherplayer'>another player</p>");
 }
 
 var clicks = 0;
