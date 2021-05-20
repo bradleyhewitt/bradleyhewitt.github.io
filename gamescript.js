@@ -46,10 +46,12 @@ function makePortrait(){
 	$(".checkbox").css("border-radius", "18px");
 	$('input[type=range]').addClass('mobileslider');
 	$(".checkbox").css({"height": "40px", "width": "40px"});
-	$(".textbox").css({"height": "40px", "width": "30vw", "font-size": "20px", "border-radius": "18px", "padding-left": "10px"});
+	$(".textbox").css({"height": "35px", "width": "30vw", "font-size": "20px", "border-radius": "18px", "padding-left": "10px"});
 	$("#addplayer").css({"min-height": "45px", "min-width": "25%", "font-size": "20px"});
 	$("#racebutton").css({"width": "60vw", "height": "400px"});
 	$("#resultspace").css("flex-flow", "column nowrap");
+	$(".tile").css("height", "30px");
+	$(".tile").css("width", "30px");
 	$(".playerresult").css("width", "100%");
 	return;
 }
@@ -201,9 +203,11 @@ function decideTurn(){
 		newFlipCupTurn();
 	} else if (current == "clickrace"){
 		newClickRaceTurn();
+	} else if (current == "memory"){
+		newMemoryTurn();
 	}
 	$(document).ready(function(){
-		document.getElementById(current + "wrapper").style.display = "block";
+		$("#" + current + "wrapper").css("display", "flex");
 	});
 }
 
@@ -217,7 +221,7 @@ function tryToStart(){
 }
 
 function startGame(){
-	document.getElementById("pregamewrapper").style.display = "none";
+	$("#pregamewrapper").css("display", "none");
 	$("#playagain").css("display", "inline-block");
 	newTurn();
 }
@@ -242,7 +246,7 @@ var rewards = new Array("Give another player a shot", "Give another player a sho
 
 function hideAllGames(){
 	if (current != "NULL"){
-		document.getElementById(current + "wrapper").style.display = "none";
+		$("#" + current + "wrapper").css("display", "none");
 	}
 }
 
@@ -318,8 +322,29 @@ function newCategoriesTurn() {
 function newFlipCupTurn(){
 	$(".title").text("FLIP CUP");
 	$(".nextturn").css("display", "inline-block");
-	$(".otherplayer").html(playerList[getOtherPlayer()]);
 	$(".gamedesc").html("Engage in a game of flip cup against <p class = 'otherplayer'>another player</p>");
+	$(".otherplayer").html(playerList[getOtherPlayer()]);
+}
+
+var words = new Array("waco", "engr", "grot", "tox", "jar", "alas", "rove", "dore", "rath", "tao", "edh", "thro", "tsar", "grit", "host", "ala", "trop", "gar", "topi", "galv", "war", "forl", "faq", "npa", "patt", "imit", "pya", "bulg", "jav", "dior", "kivu", "hasa", "odyl", "coz", "bot", "doze", "pick", "rase", "ski", "oozy", "sita", "iom", "kim", "bull", "rock", "avn", "duty", "mlos", "coth", "claw", "foss", "miss", "rusk", "boyo", "coll", "kidd", "soho", "litb", "thak", "ogma", "douw", "dame", "loe", "oik", "stud", "hama", "oyez", "keen", "elis", "wily", "reis", "buck", "bact", "jute", "pine", "tad", "beta", "kurd", "drew", "jet", "frug", "spag", "elhi", "muir", "gino", "pol", "komi", "huss", "raj", "meth", "osd", "fima", "sibb", "hamm", "rcn", "agcy", "rama", "path", "yale", "gld");
+var colors = new Array("#ff4747", "#ffa347", "#e3b900", "#97ff47", "#47fff3", "#47a9ff", "#8147ff", "#ff478a");
+
+function newMemoryTurn(){
+	$(".title").text("MEMORY");
+	$(".nextturn").css("display", "none");
+	$(".gamedesc").html("Remember this tile");
+	if (playerList.length == 0){
+		$(".player").css("display", "none");
+		$(".player").css("height", "0");
+	}
+	var i;
+	var word = "word"
+	for (i = 0; i < 25; i++){
+		var random_color = colors[Math.floor(Math.random() * colors.length)];
+		var random_word = words[Math.floor(Math.random() * words.length)];
+		$("#tilespace").prepend("<div class = 'tilewrapper'><div class = 'tile' id = 'tile" + i + "'><p>" + random_word + "</p></div></div>");
+		$("#tile" + i).css("background-color", random_color);
+	}
 }
 
 var clicks = 0;
@@ -408,6 +433,7 @@ var dark = true;
 var categories = true;
 var flipcup = true;
 var clickrace = true;
+var memory = true;
 
 $(document).ready(function(){
 	if (dark){
@@ -481,7 +507,10 @@ function buildMinigamesList(){
 			toggleGame("clickrace");
 		}
 	}
-	if (!categories && !flipcup && !clickrace){
+	if (memory){
+		minigames.push("memory");
+	}
+	if (!categories && !flipcup && !clickrace && !memory){
 		return 1;
 	}
 	return 0;
