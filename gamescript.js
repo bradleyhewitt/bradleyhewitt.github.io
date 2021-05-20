@@ -12,35 +12,22 @@ function makeLandscape(){
 
 function makePortrait(){
 	$("body").css("overflow-y", "scroll");
-	$("body::-webkit-scrollbar").css("scrollbar-width", "auto");
-	$("body::-webkit-scrollbar").css("display", "auto");
-	$("body::-webkit-scrollbar").css("-ms-overflow-style: none;", "auto");
+	$("body::-webkit-scrollbar").css({"scrollbar-width": "auto", "display": "auto", "-ms-overflow-style: none;": "auto"});
 	var maxHeight = window.screen.height * 0.75;
-	$(".textdisplay").css("max-height", maxHeight.toString());
-	$(".textdisplay").css("max-width", "80vw");
-	$(".textdisplay").css("width", "80vw");
-	$(".textdisplay").css("font-size", "50px");
-	$(".textdisplay").css("border-radius", "80px");
-	$(".textdisplay").css("overflow-y", "scroll");
-	$(".textdisplay::-webkit-scrollbar").css("scrollbar-width", "auto");
-	$(".textdisplay::-webkit-scrollbar").css("display", "auto");
-	$(".textdisplay::-webkit-scrollbar").css("-ms-overflow-style: none;", "auto");
+	$(".textdisplay").css({"max-height": maxHeight.toString(), "max-width": "80vw", "width": "80vw", "font-size": "50px", "border-radius": "80px", "overflow-y": "scroll"});
+	$(".textdisplay::-webkit-scrollbar").css({"scrollbar-width": "auto", "display": "auto", "-ms-overflow-style: none;": "auto"});
 	$("#howtoplay").css("font-size", "60px");
 	$(".title").css("font-size", "70px");
 	$(".player").css("font-size", "60px");
 	$("#alphabet").css("font-size", "125px");
 	$("#playagain").css("font-size", "30px");
-	$("#retryimg").css("height", "30px");
-	$("#retryimg").css("width", "30px");
+	$("#retryimg").css({"height": "30px", "width": "30px"});
 	$('button').addClass('mobilebutton');
-	$(".timerbar").css("height", "70px");
-	$(".timerbar").css("width", "70vw");
-	$(".timerbar").css("border-radius", "35px");
+	$(".timerbar").css({"height": "70px", "width": "70vw", "border-radius": "35px"});
 	$(".timerbarprogress").css("border-radius", "35px");
 	$(".count").css("font-size", "40px");
 	$("#type").css("font-size", "80%");
-	$("#playerresultoutcome").css("font-size", "80%");
-	$("#playerresultoutcome").css("line-height", "1");
+	$("#playerresultoutcome").css({"font-size": "80%", "line-height": "1"});
 	$(".labelwrapper").css("font-size", "60%");
 	$(".slider").css("height", "30px");
 	$(".checkbox").css("border-radius", "18px");
@@ -53,6 +40,7 @@ function makePortrait(){
 	$(".playerresult").css("width", "100%");
 	$("#tile").css({"height": "150px", "width": "150px"});
 	$("#tilespace").css({"height": "75vw", "width": "75vw"});
+	$("#revealforeheadword").css({"height": "30vw", "width": "30vw"});
 	return;
 }
 
@@ -205,6 +193,8 @@ function decideTurn(){
 		newClickRaceTurn();
 	} else if (current == "memory"){
 		newMemoryTurn();
+	} else if (current == "forehead"){
+		newForeheadTurn();
 	}
 	$(document).ready(function(){
 		$("#" + current + "wrapper").css("display", "flex");
@@ -336,13 +326,20 @@ function newMemoryTurn(){
 		$(".player").css("height", "0");
 	}
 	var i;
-	var word = "word"
 	for (i = 0; i < 25; i++){
 		var random_color = colors[Math.floor(Math.random() * colors.length)];
 		var random_word = words[Math.floor(Math.random() * words.length)];
-		$("#tilespace").prepend("<div class = 'tilewrapper'><div class = 'tile' id = 'tile" + i + "'><p>" + random_word + "</p></div></div>");
+		$("#tilespace").prepend("<div class = 'tilewrapper'><div class = 'tile' id = 'tile" + i + "'><p class = 'noselect'>" + random_word + "</p></div></div>");
 		$("#tile" + i).css("background-color", random_color);
 	}
+}
+
+function newForeheadTurn(){
+	$(".title").text("FOREHEAD");
+}
+
+function revealForeheadWord(){
+	
 }
 
 var clicks = 0;
@@ -432,6 +429,7 @@ var categories = true;
 var flipcup = true;
 var clickrace = true;
 var memory = true;
+var forehead = true;
 
 $(document).ready(function(){
 	if (dark){
@@ -508,7 +506,14 @@ function buildMinigamesList(){
 	if (memory){
 		minigames.push("memory");
 	}
-	if (!categories && !flipcup && !clickrace && !memory){
+	if (forehead){
+		if (playerList.length >= 2){
+			minigames.push("forehead");
+		} else {
+			toggleGame("forehead");
+		}
+	}
+	if (!categories && !flipcup && !clickrace && !memory && !forehead){
 		return 1;
 	}
 	return 0;

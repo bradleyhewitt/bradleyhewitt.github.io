@@ -39,14 +39,6 @@ body {
 	font-weight: bold;
 }
 
-#description {
-	margin-top: 10px;
-	margin-left: 0px;
-	margin-right: 0px;
-	margin-bottom: 20px;
-	font-weight: normal;
-}
-
 .labelwrapper {
 	display: flex;
 	flex-flow: row wrap;
@@ -135,6 +127,7 @@ body {
 	align-content: center;
 	flex-grow: 0;
 	flex-shrink: 0;
+	cursor: pointer;
 }
 
 .tile > p {
@@ -165,6 +158,13 @@ body {
 	align-content: space-evenly;
 	background-color: #ababab;
 	border-radius: 15px;
+}
+
+#revealforeheadword {
+	width: 40vw;
+	height: 40vh;
+	font-size: 40px;
+	border-radius: 60px;
 }
 
 .player {
@@ -199,6 +199,9 @@ body {
 	-moz-user-select: none;
 	-o-user-select: none;
 	user-select: none;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .otherplayer {

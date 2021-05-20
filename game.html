@@ -14,7 +14,7 @@
 		<p class = "title">DRINKING GAMES</p>
 		<div class = "textdisplay" id = "pregamewrapper">
 			<p id = "howtoplay">How to Play</p>
-			<p id = "description">Select your games & enter your names. Follow the instructions for each turn.</p>
+			<div class = "gamedesc" id = "pregamedesc">Select your games & enter your names. Follow the instructions for each turn.</div>
 			<div class = "labelwrapper" id = "gameselector">
 				<label for="enablecategories">Categories</label>
 				<span class="checkbox checked" id="enablecategories" onclick="toggleGame('categories');"></span>
@@ -34,6 +34,9 @@
 				<div class = "break"></div>
 				<label for="enablememory">Memory</label>
 				<span class="checkbox checked" id="enablememory" onclick="toggleGame('memory');"></span>
+				<div class = "break"></div>
+				<label for="enableforehead">Forehead</label>
+				<span class="checkbox checked" id="enableforehead" onclick="toggleGame('forehead');"></span>
 			</div>
 			<div class = "labelwrapper" id = "playerlabelwrapper">
 				<label>Players</label>
@@ -120,6 +123,13 @@
 			<div class = "gamedesc" id = "memorydesc">Remember this tile</div>
 			<div class = "tilewrapper"><div class = "tile" id = "tile"><p>?</p></div></div>
 			<div id = "tilespace">
+			</div>
+		</div>
+		<div class = "textdisplay" id = "foreheadwrapper">
+			<p class = "player">&#8203;</p>
+			<div class = "gamedesc" id = "memorydesc">Put the phone on your forehead and have another player tap to reveal</div>
+			<div class = "buttonwrapper">
+				<button class = "greenbutton" id = "revealforeheadword" onclick="revealForeheadWord();">Reveal Word</button>
 			</div>
 		</div>
 		<p id = "playagain"><a onclick="location.reload();" style = "text-decoration: none; color: #ababab">Restart Game <img id = "retryimg" src = "assets/retry.png"></a></p>
