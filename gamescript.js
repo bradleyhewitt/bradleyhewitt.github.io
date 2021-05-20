@@ -26,7 +26,7 @@ function makePortrait(){
 	$(".timerbar").css({"height": "70px", "width": "70vw", "border-radius": "35px"});
 	$(".timerbarprogress").css("border-radius", "35px");
 	$(".count").css("font-size", "40px");
-	$("#type").css("font-size", "80%");
+	$(".outcome").css("font-size", "80%");
 	$("#playerresultoutcome").css({"font-size": "80%", "line-height": "1"});
 	$(".labelwrapper").css("font-size", "60%");
 	$(".slider").css("height", "30px");
@@ -40,7 +40,7 @@ function makePortrait(){
 	$(".playerresult").css("width", "100%");
 	$("#tile").css({"height": "150px", "width": "150px"});
 	$("#tilespace").css({"height": "75vw", "width": "75vw"});
-	$("#revealforeheadword").css({"height": "30vw", "width": "30vw"});
+	$("#revealforeheadword").css({"height": "50vw", "width": "75vw"});
 	return;
 }
 
@@ -53,7 +53,7 @@ function makeTallDevice(){
 	$(".greenbutton").css("min-width", "35vw");
 	$(".greenbutton").css("border-radius", "10px");
 	$(".greenbutton").css("font-size", "20px");
-	$("#type").css("font-size", "80%");
+	$(".outcome").css("font-size", "80%");
 	$(".checkbox").css({"height": "25px", "width": "25px"});
 	$(".textbox").css({"height": "25px", "width": "50%"});
 	$("#addplayer").css({"height": "40px", "min-width": "30%", "font-size": "18px"});
@@ -66,25 +66,25 @@ correct_audio.loop = false;
 var incorrect_audio = new Audio('assets/incorrect.mp3');
 incorrect_audio.loop = false;
 
-function correct(){
-	stopCounter("categories", categoriestimer);
+function correct(game){
+	stopCounter(game, window[game + "timer"]);
 	hideButtons();
 	var random_reward = rewards[Math.floor(Math.random() * rewards.length)];
-	$("#type").css("display", "inline-block");
-	$("#type").css("color", "#49c973");
-	$("#type").html(random_reward);
+	$("#" + game + "outcome").css("display", "inline-block");
+	$("#" + game + "outcome").css("color", "#49c973");
+	$("#" + game + "outcome").html(random_reward);
 	$(".nextturn").css("display", "inline-block");
 	correct_audio.load();
 	correct_audio.play();
 }
 
-function incorrect(){
-	stopCounter("categories", categoriestimer);
+function incorrect(game){
+	stopCounter(game, window[game + "timer"]);
 	hideButtons();
 	var random_punishment = punishments[Math.floor(Math.random() * punishments.length)];
-	$("#type").css("display", "inline-block");
-	$("#type").css("color", "#ff5c5c");
-	$("#type").html(random_punishment);
+	$("#" + game + "outcome").css("display", "inline-block");
+	$("#" + game + "outcome").css("color", "#ff5c5c");
+	$("#" + game + "outcome").html(random_punishment);
 	$(".nextturn").css("display", "inline-block");
 	incorrect_audio.load();
 	incorrect_audio.play();
@@ -103,6 +103,9 @@ function updateCounter(game){
 }
 
 function stopCounter(game, timer){
+	if (game == "wheel"){
+		return;
+	}
 	$("#" + game + "progress").css("width", "0");
 	$("#" + game + "progress").css("animation-play-state", "paused");
 	$("#" + game + "timer").css("display", "none");
@@ -195,6 +198,8 @@ function decideTurn(){
 		newMemoryTurn();
 	} else if (current == "forehead"){
 		newForeheadTurn();
+	} else if (current = "colorwheel"){
+		newColorWheelTurn();
 	}
 	$(document).ready(function(){
 		$("#" + current + "wrapper").css("display", "flex");
@@ -272,9 +277,9 @@ function newCategoriesTurn() {
 	$("#categoriesprogress").css("animation-play-state", "paused");
 	$("#categoriescount").text(timerlength);
 	$("#alphabet").css("visibility", "hidden");
-	$("#type").css("display", "none");
+	$("#categoriesoutcome").css("display", "none");
 	var random_reward = rewards[Math.floor(Math.random() * rewards.length)];
-	$("#type").text(random_reward);
+	$("#categoriesoutcome").text(random_reward);
     var random_category = category[Math.floor(Math.random() * category.length)];
 	$("#letters").text(random_category);
     var cateWrapper = document.querySelector('#category #letters');
@@ -318,28 +323,153 @@ function newFlipCupTurn(){
 var words = new Array("Ally", "Back", "Ball", "Body", "Cake", "City", "Duck", "Film", "Fire", "Fish", "Foot", "Golf", "Iron", "King", "Lady", "Land", "Life", "Lion", "Love", "Meme", "Mole", "Moon", "Pain", "Rain", "Rock", "Rose", "Safe", "Self", "Soul", "Star", "Time", "Tree", "Wish", "Wolf", "Wood", "Work", "Baby", "Home", "Line", "Hand", "Girl", "Food", "Hope", "Wind", "Wife", "Bird", "Bean", "Hair", "Room", "Fall", "Hero", "Bell", "Evil", "Leaf", "List", "Math", "Goat", "Head", "Ship", "Face", "Wine", "Hate", "Good", "Edge", "Oven", "Zone", "Pear", "Desk", "Fear", "Zeus", "Side", "Gate", "Asia", "Bear", "Bone", "Taco", "Band", "Sand", "Mate", "East", "Snow", "Unit", "Gift", "Bush", "Kiss", "Move", "Corn", "Play", "Zero", "Card", "Book", "Town", "Bomb", "Sick", "Prom", "Word", "Lord", "Acid", "Lily", "Dove", "Rest", "Idea", "Cent", "Gram", "Gold", "Tube", "Game", "Year", "Cook", "Dish", "Itch", "Bath", "Rage", "Hood", "Worm", "Kite", "Shot", "Poem", "Step", "Loaf", "Form", "June", "Rice", "Path", "Silk", "Show", "Name", "Suit", "Bulb", "Race", "Tent", "Mess", "WiFi", "Bull", "Tone", "Lane", "Cold", "Yard", "Date", "Gain", "Cube", "Past", "Cone", "Tune", "Hall", "Fair", "Arch", "Oreo", "Rush", "Fate", "Park", "Berg", "Sock", "Lava", "Nova", "York", "Fast", "Mind", "Turn", "Rome", "Farm", "Wave", "Eyes", "Port", "Boat", "Area", "Beat", "Post", "Call", "Chen", "Auto", "Mean", "Milk", "Cali", "Glow", "Test", "Road", "Psh", "Fine", "Thor", "Flow", "Quad", "Dead", "West", "Look", "Dent", "Pine", "Vine", "Tail", "Part", "Club", "Day", "Tip", "Ion", "Ace", "Man", "Ice", "Cat", "Dog", "War", "Art", "End", "Car", "Bee", "Air", "Sea", "Ear", "Tea", "Eye", "Ant", "Ted", "Age", "Key", "Can", "Sun", "Son", "Net", "Ash", "Cup", "Bra", "Ink", "God", "Pie", "Bed", "Way", "Men", "DNA", "Sky", "Tin", "Ore", "Ray", "LAN", "Den", "Ale", "Boy", "Act", "Ton", "Low", "Bus", "Sin", "Gin", "Box", "Pen", "Fun", "Bow", "Boof", "Ill", "Eve", "Owl", "Boo", "Pig", "Con", "Moo", "Ark", "Ham");
 var colors = new Array("#ff4747", "#ffa347", "#e3b900", "#97ff47", "#47fff3", "#47a9ff", "#8147ff", "#ff478a", "#614021", "#2a2161", "#218f50", "#8f212c");
 
+var count = 1;
+
 function newMemoryTurn(){
 	$(".title").text("MEMORY");
+	$(".nextturn").css("display", "inline-block");
+	$("#tilespace").empty();
+	count++;
+	if (playerList.length == 0){
+		$(".player").css("display", "none");
+		$(".player").css("height", "0");
+	}
+	var perc = (100 / count) + "%";
+	var num = count * count;
+	var remainder = num % 2;
+	var pairs = new Array();
+	var i;
+	for (i = 0; i < Math.floor(num/2); i++){
+		var random_color = colors[Math.floor(Math.random() * colors.length)];
+		var random_word = words[Math.floor(Math.random() * words.length)];
+		pairs.push([random_word, random_color]);
+		pairs.push([random_word, random_color]);
+	}
+	if (remainder != 0){
+		pairs.push(["?", "#1c1c1c"]);
+	}
+	for (i = 0; i < num; i++){
+		var index = Math.floor(Math.random() * pairs.length);
+		var random_pair = pairs[index];
+		pairs.splice(index, 1);
+		$("#tilespace").prepend("<div class = 'tilewrapper'><div class = 'tile' id = 'tile" + i + "'><p class = 'noselect'>" + random_pair[0] + "</p></div></div>");
+		$("#tile" + i).css("background-color", random_pair[1]);
+	}
+	$(".tilewrapper").css({"flex-basis": perc, "height": perc, "width": perc});
+	$(".tile").css({"font-size": ((75 / count) + (count / 2.3)).toString() + "px"});
+}
+
+function newForeheadTurn(){
+	$(".title").text("FOREHEAD");
+	if (playerList.length == 0){
+		$(".player").css("display", "none");
+		$(".player").css("height", "0");
+	}
+	$("#revealforeheadword").css({"display": "inline-block"});
+	$("#foreheaddesc").css({"display": "inline-block"});
+	$("#foreheadtimer").css({"display": "none"});
+	$("#foreheadword").css({"display": "none"});
+}
+
+function revealForeheadWord(){
+	$("#revealforeheadword").css({"display": "none"});
+	$("#foreheaddesc").text("Give them clues!");
+	$("#foreheadword").css({"display": "inline-block"});
+	$("#foreheadtimer").css({"display": "flex"});
+	$("#foreheadword").text("Word");
+}
+
+var wheelcolors = ["red", "yellow", "blue", "green"];
+var pattern = new Array();
+
+function newColorWheelTurn(){
+	$(".title").text("COLOR WHEEL");
+	$("#wheeldesc").text("Remember the pattern");
+	$("#wheeloutcome").css("display", "none");
 	$(".nextturn").css("display", "none");
 	if (playerList.length == 0){
 		$(".player").css("display", "none");
 		$(".player").css("height", "0");
 	}
+    setTimeout(function() {
+		startColorWheelAnimation();
+    }, 2000);
+}
+
+var wheelanimation;
+
+function startColorWheelAnimation(){
 	var i;
-	for (i = 0; i < 25; i++){
-		var random_color = colors[Math.floor(Math.random() * colors.length)];
-		var random_word = words[Math.floor(Math.random() * words.length)];
-		$("#tilespace").prepend("<div class = 'tilewrapper'><div class = 'tile' id = 'tile" + i + "'><p class = 'noselect'>" + random_word + "</p></div></div>");
-		$("#tile" + i).css("background-color", random_color);
+	if (pattern.length == 0){
+		for (i = 0; i < 3; i++){
+			pattern.push(wheelcolors[Math.floor(Math.random() * wheelcolors.length)]);
+		}
+	} else {
+		pattern.push(wheelcolors[Math.floor(Math.random() * wheelcolors.length)]);
+	}
+	var counter = 0;
+	wheelanimation = setInterval(function() {
+		if (counter > pattern.length){
+			clearInterval(wheelanimation);
+			startColorWheelClick();
+		}
+		highlightColor(pattern[counter], 1000);
+		counter++;
+	}, 1500);
+}
+
+var wheelclickenabled = false;
+var recitepattern = [];
+
+function startColorWheelClick(){
+	$("#wheeldesc").text("Recite the pattern in order");
+	recitepattern = [];
+	wheelclickenabled = true;
+}
+
+function wheelClick(color){
+	if (!wheelclickenabled){
+		return;
+	}
+	recitepattern.push(color);
+	highlightColor(color, 500);
+	if (recitepattern.length == pattern.length){
+		wheelclickenabled = false;
+		var correctpattern = true;
+		for (var i = 0; i < pattern.length; ++i) {
+			if (pattern[i] !== recitepattern[i]){
+				correctpattern = false;
+				break;
+			}
+		}
+		if (correctpattern){
+			correct("wheel");
+		} else {
+			incorrect("wheel");
+		}
+		return;
 	}
 }
 
-function newForeheadTurn(){
-	$(".title").text("FOREHEAD");
-}
-
-function revealForeheadWord(){
-	
+function highlightColor(color, length){
+	var red = "#f54242";
+	var yellow = "#f5d742";
+	var green = "#4fdb4b";
+	var blue = "#4275f5";
+	var colorval;
+	if (color == "red"){
+		colorval = red;
+	} else if (color == "yellow"){
+		colorval = yellow;
+	} else if (color == "green"){
+		colorval = green;
+	} else if (color == "blue"){
+		colorval = blue;
+	}
+	$("#wheel" + color).css("background-color", "#ffffff");
+	setTimeout(function() {
+		$("#wheel" + color).css("background-color", colorval);
+	}, length);
 }
 
 var clicks = 0;
@@ -430,6 +560,7 @@ var flipcup = true;
 var clickrace = true;
 var memory = true;
 var forehead = true;
+var colorwheel = true;
 
 $(document).ready(function(){
 	if (dark){
@@ -506,14 +637,13 @@ function buildMinigamesList(){
 	if (memory){
 		minigames.push("memory");
 	}
-	if (forehead){
-		if (playerList.length >= 2){
-			minigames.push("forehead");
-		} else {
-			toggleGame("forehead");
-		}
+	if (colorwheel){
+		minigames.push("colorwheel");
 	}
-	if (!categories && !flipcup && !clickrace && !memory && !forehead){
+	if (forehead){
+		minigames.push("forehead");
+	}
+	if (!categories && !flipcup && !clickrace && !memory && !forehead && !colorwheel){
 		return 1;
 	}
 	return 0;
