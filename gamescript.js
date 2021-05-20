@@ -26,7 +26,7 @@ function makePortrait(){
 	$(".textdisplay::-webkit-scrollbar").css("display", "auto");
 	$(".textdisplay::-webkit-scrollbar").css("-ms-overflow-style: none;", "auto");
 	$("#howtoplay").css("font-size", "60px");
-	$(".title").css("font-size", "75px");
+	$(".title").css("font-size", "70px");
 	$(".player").css("font-size", "60px");
 	$("#alphabet").css("font-size", "125px");
 	$("#playagain").css("font-size", "30px");
