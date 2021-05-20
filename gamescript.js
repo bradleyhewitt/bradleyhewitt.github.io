@@ -51,6 +51,7 @@ function makePortrait(){
 	$("#racebutton").css({"width": "60vw", "height": "400px"});
 	$("#resultspace").css("flex-flow", "column nowrap");
 	$(".playerresult").css("width", "100%");
+	$("#tile").css({"height": "150px", "width": "150px"});
 	$("#tilespace").css({"height": "75vw", "width": "75vw"});
 	return;
 }
@@ -321,7 +322,6 @@ function newCategoriesTurn() {
 function newFlipCupTurn(){
 	$(".title").text("FLIP CUP");
 	$(".nextturn").css("display", "inline-block");
-	$(".gamedesc").html("Engage in a game of flip cup against <p class = 'otherplayer'>another player</p>");
 	$(".otherplayer").html(playerList[getOtherPlayer()]);
 }
 
@@ -331,7 +331,6 @@ var colors = new Array("#ff4747", "#ffa347", "#e3b900", "#97ff47", "#47fff3", "#
 function newMemoryTurn(){
 	$(".title").text("MEMORY");
 	$(".nextturn").css("display", "none");
-	$(".gamedesc").html("Remember this tile");
 	if (playerList.length == 0){
 		$(".player").css("display", "none");
 		$(".player").css("height", "0");
@@ -354,7 +353,7 @@ var otherraceplayer;
 
 function newClickRaceTurn(){
 	$(".title").text("CLICK RACE");
-	$(".gamedesc").text("Click... quick");
+	$("#clickracedesc").text("Click... quick");
 	$(".nextturn").css("display", "none");
 	$(".buttonspace").css("visibility", "visible");
 	$("#racetimer").css("display", "flex");
@@ -398,7 +397,7 @@ function nextRacePlayer(){
 
 function showRaceResults(){
 	$(".player").css("display", "none");
-	$(".gamedesc").text("Results");
+	$("#clickracedesc").text("Results");
 	$("#racebuttonwrapper").css("display", "none");
 	$("#resultspace").css("display", "flex");
 	$("#p1name").css("display", "inline-block");
