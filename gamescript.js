@@ -46,7 +46,7 @@ function makePortrait(){
 	$(".checkbox").css("border-radius", "18px");
 	$('input[type=range]').addClass('mobileslider');
 	$(".checkbox").css({"height": "40px", "width": "40px"});
-	$(".textbox").css({"height": "35px", "width": "30vw", "font-size": "20px", "border-radius": "18px", "padding-left": "10px"});
+	$(".textbox").css({"height": "30px", "width": "30vw", "font-size": "20px", "border-radius": "18px", "padding-left": "10px"});
 	$("#addplayer").css({"min-height": "45px", "min-width": "25%", "font-size": "20px"});
 	$("#racebutton").css({"width": "60vw", "height": "400px"});
 	$("#resultspace").css("flex-flow", "column nowrap");
