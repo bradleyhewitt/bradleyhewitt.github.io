@@ -50,9 +50,10 @@ function makePortrait(){
 	$("#addplayer").css({"min-height": "45px", "min-width": "25%", "font-size": "20px"});
 	$("#racebutton").css({"width": "60vw", "height": "400px"});
 	$("#resultspace").css("flex-flow", "column nowrap");
-	$(".tile").css("height", "30px");
-	$(".tile").css("width", "30px");
 	$(".playerresult").css("width", "100%");
+	$(".tile").css({"height": "90px", "width": "90px"});
+	$("#tile").css({"height": "125px", "width": "125px"});
+	$("#tilespace").css({"height": "75vw", "width": "75vw"});
 	return;
 }
 
@@ -345,6 +346,8 @@ function newMemoryTurn(){
 		$("#tilespace").prepend("<div class = 'tilewrapper'><div class = 'tile' id = 'tile" + i + "'><p>" + random_word + "</p></div></div>");
 		$("#tile" + i).css("background-color", random_color);
 	}
+	$(".tile").css({"height": "90px", "width": "90px"});
+	$("#tile").css({"height": "125px", "width": "125px"});
 }
 
 var clicks = 0;
