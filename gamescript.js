@@ -387,6 +387,10 @@ function newColorWheelTurn(){
 	$("#wheeldesc").text("Remember the pattern");
 	$("#wheeloutcome").css("display", "none");
 	$(".nextturn").css("display", "none");
+	$("#wheelred").css("cursor", "not-allowed");
+	$("#wheelyellow").css("cursor", "not-allowed");
+	$("#wheelgreen").css("cursor", "not-allowed");
+	$("#wheelblue").css("cursor", "not-allowed");
 	if (playerList.length == 0){
 		$(".player").css("display", "none");
 		$(".player").css("height", "0");
@@ -409,12 +413,14 @@ function startColorWheelAnimation(){
 	}
 	var counter = 0;
 	wheelanimation = setInterval(function() {
-		if (counter > pattern.length){
-			clearInterval(wheelanimation);
-			startColorWheelClick();
-		}
 		highlightColor(pattern[counter], 1000);
 		counter++;
+		if (counter == pattern.length){
+		    setTimeout(function() {
+				clearInterval(wheelanimation);
+				startColorWheelClick();
+			}, 1000);
+		}
 	}, 1500);
 }
 
@@ -423,6 +429,10 @@ var recitepattern = [];
 
 function startColorWheelClick(){
 	$("#wheeldesc").text("Recite the pattern in order");
+	$("#wheelred").css("cursor", "pointer");
+	$("#wheelyellow").css("cursor", "pointer");
+	$("#wheelgreen").css("cursor", "pointer");
+	$("#wheelblue").css("cursor", "pointer");
 	recitepattern = [];
 	wheelclickenabled = true;
 }

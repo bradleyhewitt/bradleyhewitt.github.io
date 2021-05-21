@@ -140,8 +140,8 @@ body {
 }
 
 #tilespace {
-	height: 55vh;
-	width: 55vh;
+	height: 50vh;
+	width: 50vh;
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-evenly;
@@ -172,7 +172,7 @@ body {
 	border-top-left-radius: 100%;
 	background-color: #f54242;
 	border: 4px solid #ffffff;
-	cursor: pointer;
+	cursor: not-allowed;
 }
 
 #wheelyellow {
@@ -181,7 +181,7 @@ body {
 	border-top-right-radius: 100%;
 	background-color: #f5d742;
 	border: 4px solid #ffffff;
-	cursor: pointer;
+	cursor: not-allowed;
 }
 
 #wheelgreen {
@@ -190,7 +190,7 @@ body {
 	border-bottom-left-radius: 100%;
 	background-color: #4fdb4b;
 	border: 4px solid #ffffff;
-	cursor: pointer;
+	cursor: not-allowed;
 }
 
 #wheelblue {
@@ -199,7 +199,7 @@ body {
 	border-bottom-right-radius: 100%;
 	background-color: #4275f5;
 	border: 4px solid #ffffff;
-	cursor: pointer;
+	cursor: not-allowed;
 }
 
 #revealforeheadword {
