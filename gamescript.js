@@ -39,7 +39,7 @@ function makePortrait(){
 	$("#resultspace").css("flex-flow", "column nowrap");
 	$(".playerresult").css("width", "100%");
 	$("#tile").css({"height": "150px", "width": "150px"});
-	$("#tilespace").css({"height": "75vw", "width": "75vw"});
+	$(".space").css({"height": "75vw", "width": "75vw"});
 	$("#revealforeheadword").css({"height": "50vw", "width": "75vw"});
 	return;
 }

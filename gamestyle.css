@@ -139,31 +139,25 @@ body {
 	margin: 0;
 }
 
-#tilespace {
-	height: 50vh;
-	width: 50vh;
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-evenly;
-	align-items: stretch;
-	align-content: space-evenly;
-	background-color: #ababab;
-	border-radius: 15px;
-	margin-left: 0;
-	margin-right: 0;
-	margin-top: 0;
-	margin-bottom: 30px;
-}
-
-#colorwheelspace {
+.space {
 	height: 55vh;
 	width: 55vh;
-	padding: 10px;
 	display: flex;
 	flex-flow: row wrap;
 	background-color: #ababab;
 	border-radius: 15px;
 	margin: 0;
+}
+
+#tilespace {
+	justify-content: space-evenly;
+	align-items: stretch;
+	align-content: space-evenly;
+	margin-bottom: 30px;
+}
+
+#colorwheelspace {
+	padding: 10px;
 }
 
 #wheelred {
