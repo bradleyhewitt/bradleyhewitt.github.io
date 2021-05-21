@@ -65,6 +65,8 @@ var correct_audio = new Audio('assets/correct.mp3');
 correct_audio.loop = false;
 var incorrect_audio = new Audio('assets/incorrect.mp3');
 incorrect_audio.loop = false;
+var button_audio = new Audio('assets/button.mp3');
+button_audio.loop = false;
 
 function correct(game){
 	stopCounter(game, window[game + "timer"]);
@@ -476,6 +478,8 @@ function highlightColor(color, length){
 	} else if (color == "blue"){
 		colorval = blue;
 	}
+	button_audio.load();
+	button_audio.play();
 	$("#wheel" + color).css("background-color", "#ffffff");
 	setTimeout(function() {
 		$("#wheel" + color).css("background-color", colorval);
