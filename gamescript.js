@@ -123,15 +123,17 @@ function stopCounter(game, timer){
 }
 
 function showButtons(){
-	$("#correct").css("visibility", "visible");
-	$("#incorrect").css("visibility", "visible");
+	$(".correct").css("visibility", "visible");
+	$(".incorrect").css("visibility", "visible");
+	$(".correct").css("display", "inline-block");
+	$(".incorrect").css("display", "inline-block");
 }
 
 function hideButtons(){
-	$("#correct").css("visibility", "hidden");
-	$("#incorrect").css("visibility", "hidden");
-	$("#correct").css("display", "none");
-	$("#incorrect").css("display", "none");
+	$(".correct").css("visibility", "hidden");
+	$(".incorrect").css("visibility", "hidden");
+	$(".correct").css("display", "none");
+	$(".incorrect").css("display", "none");
 }
 
 var players = 1;
@@ -264,10 +266,11 @@ function newTurn(){
 function newCategoriesTurn() {
 	$(".title").text("CATEGORIES");
 	$(".nextturn").css("display", "none");
+	$(".buttonspace").css("display", "flex");
 	$(".buttonspace").css("visibility", "hidden");
 	$("#categoriestimer").css("display", "flex");
-	$("#correct").css("display", "inline-block");
-	$("#incorrect").css("display", "inline-block");
+	$(".correct").css("display", "inline-block");
+	$(".incorrect").css("display", "inline-block");
 	if (playerList.length == 0){
 		$(".player").css("display", "none");
 		$(".player").css("height", "0");
@@ -367,18 +370,33 @@ function newForeheadTurn(){
 		$(".player").css("display", "none");
 		$(".player").css("height", "0");
 	}
+	$(".nextturn").css("display", "none");
+	$("#foreheadoutcome").css("display", "none");
+	$(".buttonspace").css("display", "none");
 	$("#revealforeheadword").css({"display": "inline-block"});
 	$("#foreheaddesc").css({"display": "inline-block"});
 	$("#foreheadtimer").css({"display": "none"});
+	$("#foreheadcount").text(20);
 	$("#foreheadword").css({"display": "none"});
 }
+
+var foreheadtimer;
 
 function revealForeheadWord(){
 	$("#revealforeheadword").css({"display": "none"});
 	$("#foreheaddesc").text("Give them clues!");
 	$("#foreheadword").css({"display": "inline-block"});
 	$("#foreheadtimer").css({"display": "flex"});
-	$("#foreheadword").text("Word");
+	$("#foreheadword").text(words[Math.floor(Math.random() * words.length)]);
+	$("#foreheadprogress").css("animation", "none");
+	$("#foreheadprogress").css("animation", "updateTimer 20s linear 0s 1 forwards");
+	$("#foreheadprogress").css("animation-play-state", "running");
+	foreheadtimer = setInterval(function() {
+		updateCounter("forehead");
+	}, 1000);
+	$(".buttonspace").css("display", "flex");
+	$(".buttonspace").css("visibility", "visible");
+	showButtons();
 }
 
 var wheelcolors = ["red", "yellow", "blue", "green"];

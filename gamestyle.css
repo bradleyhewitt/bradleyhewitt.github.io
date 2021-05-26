@@ -435,11 +435,6 @@ body::-webkit-scrollbar {
 	height: 40vh;
 }
 
-#correct {
-	margin-right: 2px;
-	visibility: hidden;
-}
-
 .nextturn {
 	display: none;
 }
@@ -471,13 +466,19 @@ body::-webkit-scrollbar {
 	border: 2px solid #339654 !important;
 }
 
-#incorrect {
-	background-color: #ff5c5c;
-	border: 2px solid #ff5c5c;
+.correct {
+	margin-right: 2px;
 	visibility: hidden;
 }
 
-#incorrect:hover {
+.incorrect {
+	background-color: #ff5c5c;
+	border: 2px solid #ff5c5c;
+	margin-left: 2px;
+	visibility: hidden;
+}
+
+.incorrect:hover {
 	border: 2px solid #9c3535 !important;
 }
 
@@ -552,6 +553,7 @@ body::-webkit-scrollbar {
 
 #foreheadtimer {
 	display: none;
+	margin-bottom: 4px;
 }
 
 .slider {

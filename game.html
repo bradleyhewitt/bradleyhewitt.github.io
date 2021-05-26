@@ -72,7 +72,7 @@
 					</div>
 				</div>
 				<span class = "buttonwrapper">
-					<button class = "greenbutton" id = "correct" onclick="correct('categories');">Correct</button><button class = "greenbutton"  id = "incorrect" onclick="incorrect('categories');">Incorrect</button>
+					<button class = "greenbutton correct" onclick="correct('categories');">Correct</button><button class = "greenbutton incorrect" onclick="incorrect('categories');">Incorrect</button>
 				</span>
 			</div>
 			<p class = "outcome" id = "categoriesoutcome">&#8203;</p>
@@ -152,7 +152,11 @@
 						<p class = "count" id = "foreheadcount">20</p>
 					</div>
 				</div>
+				<span class = "buttonwrapper">
+					<button class = "greenbutton correct" onclick="correct('forehead');">Correct</button><button class = "greenbutton incorrect" onclick="incorrect('forehead');">Incorrect</button>
+				</span>
 			</div>
+			<p class = "outcome" id = "foreheadoutcome">&#8203;</p>
 			<div class = "buttonwrapper">
 				<button class = "greenbutton nextturn" onclick="newTurn();">Next Turn</button>
 			</div>
