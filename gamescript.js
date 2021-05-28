@@ -118,6 +118,9 @@ function stopCounter(game, timer){
 		} else {
 			showRaceResults();
 		}
+	} else if (game == "memory" && memory_start == true){
+		$(".skiptimer").css({"display": "none"});
+		flipMemoryCards();
 	}
 	clearInterval(timer);
 }
@@ -329,10 +332,19 @@ var words = new Array("Ally", "Back", "Ball", "Body", "Cake", "City", "Duck", "F
 var colors = new Array("#ff4747", "#ffa347", "#e3b900", "#97ff47", "#47fff3", "#47a9ff", "#8147ff", "#ff478a", "#614021", "#2a2161", "#218f50", "#8f212c");
 
 var count = 1;
+var memorytimer;
+var pairs;
+var pairs_copy;
 
 function newMemoryTurn(){
 	$(".title").text("MEMORY");
-	$(".nextturn").css("display", "inline-block");
+	$("#memorydesc").text("Observe the cards... They will turn over soon");
+	memory_click_enabled = false;
+	memory_start = true;
+	$(".nextturn").css("display", "none");
+	$("#memoryoutcome").css("display", "none");
+	$("#memorycount").text(20);
+	$(".skiptimer").css({"display": "inline-block"});
 	$("#tilespace").empty();
 	count++;
 	if (playerList.length == 0){
@@ -342,7 +354,8 @@ function newMemoryTurn(){
 	var perc = (100 / count) + "%";
 	var num = count * count;
 	var remainder = num % 2;
-	var pairs = new Array();
+	pairs = new Array();
+	pairs_copy = new Array();
 	var i;
 	for (i = 0; i < Math.floor(num/2); i++){
 		var random_color = colors[Math.floor(Math.random() * colors.length)];
@@ -357,11 +370,69 @@ function newMemoryTurn(){
 		var index = Math.floor(Math.random() * pairs.length);
 		var random_pair = pairs[index];
 		pairs.splice(index, 1);
-		$("#tilespace").prepend("<div class = 'tilewrapper'><div class = 'tile' id = 'tile" + i + "'><p class = 'noselect'>" + random_pair[0] + "</p></div></div>");
-		$("#tile" + i).css("background-color", random_pair[1]);
+		pairs_copy.push(random_pair);
+	}
+	for (i = 0; i < num; i++){
+		$("#tilespace").append("<div class = 'tilewrapper'><div class = 'tile' id = 'tile" + i + "' onclick='registerMemoryClick(" + i + ");'>" + pairs_copy[i][0] + "</div></div>");
+		$("#tile" + i).css("background-color", pairs_copy[i][1]);
 	}
 	$(".tilewrapper").css({"flex-basis": perc, "height": perc, "width": perc});
 	$(".tile").css({"font-size": ((75 / count) + (count / 2.3)).toString() + "px"});
+	$("#memorytimer").css({"display": "flex"});
+	$("#memoryprogress").css("animation", "none");
+	$("#memoryprogress").css("animation", "updateTimer 20s linear 0s 1 forwards");
+	$("#memoryprogress").css("animation-play-state", "running");
+	memorytimer = setInterval(function() {
+		updateCounter("memory");
+	}, 1000);
+}
+
+var memory_click_enabled = false;
+var memory_start = true;
+var random_pair_index;
+
+function flipMemoryCards(){
+	memory_start = false;
+	var i = 0;
+	var pairslength = pairs_copy.length;
+	i = 0;
+	memorytimer = setInterval(function() {
+		if (i >= pairslength){
+			clearInterval(memorytimer);
+		}
+		$("#tile" + i).text("?");
+		$("#tile" + i).css("background-color", "#1c1c1c");
+		i++;
+	}, 1200 / pairslength);
+    setTimeout(function() {
+		$("#memorydesc").text("Find the shown card's match");
+		random_pair_index = Math.floor(Math.random() * pairslength);
+		while (pairs_copy[random_pair_index][0] == "?"){
+			random_pair_index = Math.floor(Math.random() * pairslength);
+		}
+		$("#tile" + random_pair_index).text(pairs_copy[random_pair_index][0]);
+		$("#tile" + random_pair_index).css("background-color", pairs_copy[random_pair_index][1]);
+		memory_click_enabled = true;
+	}, 2200);
+}
+
+function registerMemoryClick(i){
+	if (memory_click_enabled == true){
+		memory_click_enabled = false;
+		$("#tile" + i).text(pairs_copy[i][0]);
+		$("#tile" + i).css("background-color", pairs_copy[i][1]);
+		if (i != random_pair_index && pairs_copy[i][0] == pairs_copy[random_pair_index][0] && pairs_copy[i][1] == pairs_copy[random_pair_index][1]){
+			correct("memory");
+		} else {
+			incorrect("memory");
+		}
+	} else {
+		return;
+	}
+}
+
+function skipMemoryTimer(){
+	stopCounter("memory", memorytimer);
 }
 
 function newForeheadTurn(){

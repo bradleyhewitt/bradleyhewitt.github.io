@@ -123,16 +123,20 @@
 		</div>
 		<div class = "textdisplay" id = "memorywrapper">
 			<p class = "player">&#8203;</p>
-			<div class = "gamedesc" id = "memorydesc">Find the pair</div>
+			<div class = "gamedesc" id = "memorydesc">Observe the cards... They will turn over soon</div>
 			<div class = "space" id = "tilespace">
 			</div>
 			<div class = "buttonspace">
 				<div class = "timerbar" id = "memorytimer">
 					<div class = "timerbarprogress" id = "memoryprogress"></div>
 					<div class = "countbox" id = "memorycountbox">
-						<p class = "count" id = "memorycount">10</p>
+						<p class = "count" id = "memorycount">20</p>
 					</div>
 				</div>
+			</div>
+			<p class = "outcome" id = "memoryoutcome">&#8203;</p>
+			<div class = "buttonwrapper">
+				<button class = "greenbutton skiptimer" onclick="skipMemoryTimer();">Skip Timer</button>
 			</div>
 			<div class = "buttonwrapper">
 				<button class = "greenbutton nextturn" onclick="newTurn();">Next Turn</button>
