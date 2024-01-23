@@ -1,13 +1,16 @@
 import {Flex, Heading} from "@radix-ui/themes";
-import {Ref} from "react";
 
-export default function Resume(props: { ref: Ref<HTMLHeadingElement> | undefined}) {
+export default function Resume() {
   return (
-    <Flex direction={"column"} gap={"2"} ref={props.ref}>
+    <Flex direction={"column"} gap={"2"}>
       <Heading size={"8"} className={"subheader"}>
         RÉSUMÉ
       </Heading>
-      <object data={"https://raw.githubusercontent.com/bradleyhewitt/bradleyhewitt.github.io/master/src/assets/resume.pdf"} className={"pdf"} />
+      <object
+        data={"https://drive.google.com/viewerng/viewer?embedded=true&url=https://raw.githubusercontent.com/bradleyhewitt/bradleyhewitt.github.io/master/src/assets/resume.pdf"}
+        type="application/pdf"
+        className={"pdf"}
+      />
     </Flex>
   );
 }

@@ -41,14 +41,15 @@ function App() {
         }>RESUME</Text>
       </Flex>
       <Flex className={"content"} direction={"column"} gap={"4"} align={"center"} justify={"start"}>
-        <Heading size={"9"} className={"header"} ref={about}>
+        <div className={"spacer"} ref={about} />
+        <Heading size={"9"} className={"header"}>
           BRADLEY HEWITT
         </Heading>
         <Window />
         <div className={"spacer"} ref={projects} />
         <Projects ref={projects}/>
         <div className={"spacer"} ref={resume} />
-        <Resume ref={resume}/>
+        <Resume />
       </Flex>
     </Theme>
   )
