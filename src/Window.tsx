@@ -19,7 +19,7 @@ export default function Window() {
               & WEB DEVELOPER
             </Heading>
           </Flex>
-          <img src={"src/assets/profile.png"} alt={"Bradley Hewitt"} className={"profile"} />
+          <img src={"https://raw.githubusercontent.com/bradleyhewitt/bradleyhewitt.github.io/master/src/assets/profile.png"} alt={"Bradley Hewitt"} className={"profile"} />
         </Flex>
       </Flex>
     </Flex>
