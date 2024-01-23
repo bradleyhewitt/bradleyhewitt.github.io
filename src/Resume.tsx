@@ -7,7 +7,7 @@ export default function Resume(props: { ref: Ref<HTMLHeadingElement> | undefined
       <Heading size={"8"} className={"subheader"}>
         RÉSUMÉ
       </Heading>
-      <iframe src={"https://raw.githubusercontent.com/bradleyhewitt/bradleyhewitt.github.io/master/src/assets/resume.pdf"} className={"pdf"}/>
+      <object data={"https://raw.githubusercontent.com/bradleyhewitt/bradleyhewitt.github.io/master/src/assets/resume.pdf"} className={"pdf"} />
     </Flex>
   );
 }

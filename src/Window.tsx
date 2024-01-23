@@ -1,4 +1,4 @@
-import {Flex, Heading} from "@radix-ui/themes";
+import { Flex, Heading } from "@radix-ui/themes";
 
 export default function Window() {
   return (
