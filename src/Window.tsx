@@ -5,7 +5,7 @@ export default function Window() {
     <Flex direction={"column"} gap={"2"} align={"center"} justify={"start"}>
       <Flex className={"window"} direction={"column"} gap={"0"} align={"center"}>
         <Flex className={"bar"} direction={"row"} align={"center"} justify={"start"}>
-          <img src={"src/assets/buttons.png"}  alt={"Buttons"} height={"10px"} width={"auto"}/>
+          <img src={"https://raw.githubusercontent.com/bradleyhewitt/bradleyhewitt.github.io/master/src/assets/buttons.png"}  alt={"Buttons"} height={"10px"} width={"auto"}/>
         </Flex>
         <Flex direction={"row"} wrap={"wrap"} gap={"4"} className={"window-content"} align={"center"} justify={"center"}>
           <Flex direction={"column"} gap={"4"} align={"center"} justify={"start"}>
