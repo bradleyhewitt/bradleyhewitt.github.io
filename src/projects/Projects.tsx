@@ -10,7 +10,7 @@ export default function Projects() {
       <div className={"projects"}>
         <Project
           title={"Shport"}
-          desc={"Web application for follow sports teams or leagues — providing schedules, news, standings, and real-time scores."}
+          desc={"Web application for following sports teams or leagues — providing schedules, news, standings, and real-time scores."}
           url={"https://github.com/bradleyhewitt/Shport"}
         />
         <Project

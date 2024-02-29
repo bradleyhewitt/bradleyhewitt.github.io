@@ -3,7 +3,7 @@ export default function Project(props: { title: string, desc: string, url: strin
       <div className={"project"} onClick={() => {
         window.open(props.url, "_blank", "noreferrer")
       }}>
-        <h1 className={"project-title"}>{props.title}</h1>
+        <div className={"project-title"}><h1>{props.title}</h1></div>
         <p className={"project-description"}>{props.desc}</p>
       </div>
     );
