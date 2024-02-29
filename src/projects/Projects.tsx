@@ -22,7 +22,7 @@ export default function Projects() {
         <Project
           icon={<MdOutlineLocalPizza size={18} />}
           title={"Delightful"}
-          desc={"Minecraft Java modification focused on extending the ecosystem with a more cohesive meal selection. It has amassed over eight million downloads and continues to grow."}
+          desc={"Minecraft Java modification focused on extending the ecosystem with a more cohesive meal selection. It has amassed over eleven million downloads and continues to grow."}
           url={"https://github.com/brnbrd/Delightful"}
         />
         <Project
