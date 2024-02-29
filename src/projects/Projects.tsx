@@ -5,7 +5,7 @@ export default function Projects() {
   return (
     <div className={"section"}>
       <h1 className={"subheader"}>
-        PERSONAL PROJECTS
+        PROJECTS
       </h1>
       <div className={"projects"}>
         <Project
