@@ -6,19 +6,12 @@ import Projects from "./projects/Projects.tsx";
 import Education from "./education/Education.tsx";
 
 function App() {
-  const about = useRef<null | HTMLDivElement>(null);
   const projects = useRef<null | HTMLDivElement>(null);
   const education = useRef<null | HTMLDivElement>(null);
   const resume = useRef<null | HTMLDivElement>(null);
   return (
     <div className={"main"} >
       <div className={"toolbar"}>
-        <p className={"toolbar-item"} onClick={() => {
-            about?.current?.scrollIntoView({
-              behavior: "smooth"
-            });
-          }
-        }>ABOUT</p>
         <p className={"toolbar-item"} onClick={() => {
             projects?.current?.scrollIntoView({
               behavior: "smooth"
@@ -39,7 +32,6 @@ function App() {
         }>RESUME</p>
       </div>
       <div className={"content"}>
-        <div className={"spacer"} ref={about} />
         <About />
         <div className={"break"} />
         <div className={"spacer"} ref={projects} />
