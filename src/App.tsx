@@ -3,10 +3,12 @@ import About from "./about/About.tsx";
 import Resume from "./resume/Resume.tsx";
 import { useRef } from "react";
 import Projects from "./projects/Projects.tsx";
+import Education from "./education/Education.tsx";
 
 function App() {
   const about = useRef<null | HTMLDivElement>(null);
   const projects = useRef<null | HTMLDivElement>(null);
+  const education = useRef<null | HTMLDivElement>(null);
   const resume = useRef<null | HTMLDivElement>(null);
   return (
     <div className={"main"} >
@@ -24,6 +26,12 @@ function App() {
           }
         }>PROJECTS</p>
         <p className={"toolbar-item"} onClick={() => {
+          education?.current?.scrollIntoView({
+            behavior: "smooth"
+          });
+        }
+        }>EDUCATION</p>
+        <p className={"toolbar-item"} onClick={() => {
             resume?.current?.scrollIntoView({
               behavior: "smooth"
             });
@@ -36,6 +44,9 @@ function App() {
         <div className={"break"} />
         <div className={"spacer"} ref={projects} />
         <Projects />
+        <div className={"break"} />
+        <div className={"spacer"} ref={education} />
+        <Education />
         <div className={"break"} />
         <div className={"spacer"} ref={resume} />
         <Resume />
