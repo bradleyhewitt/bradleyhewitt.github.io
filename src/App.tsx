@@ -33,9 +33,11 @@ function App() {
       <div className={"content"}>
         <div className={"spacer"} ref={about} />
         <About />
-        <div className={"spacer break"} ref={projects} />
+        <div className={"break"} />
+        <div className={"spacer"} ref={projects} />
         <Projects />
-        <div className={"spacer break"} ref={resume} />
+        <div className={"break"} />
+        <div className={"spacer"} ref={resume} />
         <Resume />
       </div>
     </div>
