@@ -28,7 +28,7 @@ export default function Projects() {
         <Project
           icon={<MdOutlineHome size={18} />}
           title={"This Page"}
-          desc={"Portfolio page written in React.js."}
+          desc={"Portfolio page written in React.js and SASS."}
           url={"https://github.com/bradleyhewitt/bradleyhewitt.github.io"}
         />
       </div>

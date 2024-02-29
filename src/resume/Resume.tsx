@@ -8,7 +8,7 @@ export default function Resume() {
         <h1 className={"subheader"}>
           RÉSUMÉ
         </h1>
-        <a href={"https://raw.githubusercontent.com/bradleyhewitt/bradleyhewitt.github.io/master/src/assets/resume.pdf"} className={"svglink"} target={"_blank"} rel={"noopener noreferrer"}>
+        <a href={"https://raw.githubusercontent.com/bradleyhewitt/bradleyhewitt.github.io/master/src/assets/BradleyHewitt_resume.pdf"} className={"svglink"} target={"_blank"} rel={"noopener noreferrer"}>
           <MdOutlineOpenInNew size={24} />
         </a>
       </div>
