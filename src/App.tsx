@@ -36,7 +36,7 @@ function App() {
               behavior: "smooth"
             });
           }
-        }>RESUME</p>
+        }>RÉSUMÉ</p>
       </div>
       <div className={"content"}>
         <div className={"spacer"} ref={about} />
